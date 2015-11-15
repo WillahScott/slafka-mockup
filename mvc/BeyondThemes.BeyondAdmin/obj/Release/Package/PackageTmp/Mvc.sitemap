@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Dashboard" controller="Home" action="Index" imageUrl="glyphicon glyphicon-home" description="dashboard">
+    <mvcSiteMapNode title="Databoxes" controller="Home" action="Databoxes" imageUrl="glyphicon glyphicon-tasks" description="beyond containers"/>
+    <mvcSiteMapNode title="Widgets" controller="Home" action="Widgets" imageUrl="fa fa-th" description="flexible containers"/>
+    <mvcSiteMapNode title="Elements" controller="Home" action="UIElements" imageUrl="fa fa-desktop" description="elements">
+      <mvcSiteMapNode title="Basic Elements" controller="Home" action="Elements" description="Basics"/>
+      <mvcSiteMapNode title="Icons" controller="Home" action="Icons" description="Icons">
+        <mvcSiteMapNode title="FontAwesome" controller="Home" action="FontAwesome" description="Iconic Fonts" imageUrl="fa fa-rocket"/>
+        <mvcSiteMapNode title="Glyph Icons" controller="Home" action="GlyphIcons" description="Sharp and clean symbols" imageUrl="glyphicon glyphicon-stats"/>
+        <mvcSiteMapNode title="Typicons" controller="Home" action="Typicons" description="Iconic Fonts" imageUrl="typcn typcn-location-outline"/>
+        <mvcSiteMapNode title="Weather Icons" controller="Home" action="WeatherIcons" description="Beautiful forcasting icons" imageUrl="wi wi-meteor"/>
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Tabs and Accordions" controller="Home" action="Tabs" description="Tabs and Accordions"/>
+      <mvcSiteMapNode title="Alerts and Tooltips" controller="Home" action="Alerts" description="Notifications"/>
+      <mvcSiteMapNode title="Modals and Wells" controller="Home" action="Modals" description="excellent containers"/>
+      <mvcSiteMapNode title="Buttons" controller="Home" action="Buttons" description=""/>
+      <mvcSiteMapNode title="Nestable List" controller="Home" action="NestableList" description="dragable list items"/>
+      <mvcSiteMapNode title="TreeView" controller="Home" action="TreeView" description="Fuel UX's tree"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Tables" controller="Home" action="Tables" imageUrl="fa fa-table" description="">
+      <mvcSiteMapNode title="Simple and Responsive" controller="Home" action="SimpleTables" description="simple and responsive tables"/>
+      <mvcSiteMapNode title="Data Tables" controller="Home" action="DataTables" description="jquery plugin for data management"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Forms" controller="Home" action="Forms" imageUrl="fa fa-pencil-square-o" description="">
+      <mvcSiteMapNode title="Form Layouts" controller="Home" action="FormLayouts" description="Layouts"/>
+      <mvcSiteMapNode title="Form Inputs" controller="Home" action="FormInputs" description="Inputs"/>
+      <mvcSiteMapNode title="Data Pickers" controller="Home" action="DataPickers" description="Data Pickers"/>
+      <mvcSiteMapNode title="Wizards" controller="Home" action="Wizards" description="Wizards"/>
+      <mvcSiteMapNode title="Form Vlidation" controller="Home" action="FormValidation" description="Bootstrap Validator"/>
+      <mvcSiteMapNode title="Form Editors" controller="Home" action="FormEditors" description="Editors"/>
+      <mvcSiteMapNode title="Form Input Mask" controller="Home" action="FormInputMask" description="Input Mask"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Charts" controller="Home" action="Charts" imageUrl="fa fa-bar-chart-o" description="">
+      <mvcSiteMapNode title="Flot Charts" controller="Home" action="FlotCharts" description="attractive plotting"/>
+      <mvcSiteMapNode title="Morris Charts" controller="Home" action="MorrisCharts" description="simple and flat charts"/>
+      <mvcSiteMapNode title="Sparkline Charts" controller="Home" action="SparklineCharts" description="inline charts"/>
+      <mvcSiteMapNode title="Easy Pie Charts" controller="Home" action="EasyPieCharts" description="lightweight charts"/>
+      <mvcSiteMapNode title="ChartJS" controller="Home" action="ChartJS" description="Cool HTML5 Charts"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Profile" controller="Home" action="Profile" imageUrl="fa fa-picture-o" description="User Profile"/>
+    <mvcSiteMapNode title="Mail" controller="Home" action="Mail" imageUrl="fa fa-envelope-o" description="">
+      <mvcSiteMapNode title="Inbox" controller="Home" action="Inbox" description="Beyond Mail"/>
+      <mvcSiteMapNode title="View Message" controller="Home" action="ViewMessage" description="Veiw Message"/>
+      <mvcSiteMapNode title="ComposeMessage" controller="Home" action="Compose" description="Compose Message"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Calendar" controller="Home" action="Calendar" imageUrl="fa fa-calendar" description="Full Calendar"/>
+    <mvcSiteMapNode title="Pages" controller="Home" action="Pages" imageUrl="glyphicon glyphicon-paperclip" description="">
+      <mvcSiteMapNode title="Timeline" controller="Home" action="Timeline" description="Responsive Timeline"/>
+      <mvcSiteMapNode title="Pricing Tables" controller="Home" action="PricingTables" description="Pricing Tables"/>
+      <mvcSiteMapNode title="Invoice" controller="Home" action="Invoice" description="Invoice Page"/>
+      <mvcSiteMapNode title="Login" controller="Account" action="Login" description="Login Page"/>
+      <mvcSiteMapNode title="Register" controller="Account" action="Register" description="Register Page"/>
+      <mvcSiteMapNode title="Lock Screen" controller="Account" action="Lock" description="Lock Screen"/>
+      <mvcSiteMapNode title="Typography" controller="Home" action="Typography" description="Typography"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="More Pages" controller="Home" action="More Pages" imageUrl="glyphicon glyphicon-link" description="">
+      <mvcSiteMapNode title="Error 404" controller="Home" action="Error404" description="Error 404"/>
+      <mvcSiteMapNode title="Error 500" controller="Home" action="Error500" description="Error 500"/>
+      <mvcSiteMapNode title="Blank Page" controller="Home" action="Blank" description="empty layout"/>
+      <mvcSiteMapNode title="Grid" controller="Home" action="Grid" description="bootstrap responsive grid"/>
+      <mvcSiteMapNode title="Multi Level Menu" description="" url="/1">
+        <mvcSiteMapNode title="Level 3" imageUrl="fa fa-camera" description="" url="/2"/>
+        <mvcSiteMapNode title="Level 4" imageUrl="fa fa-asterisk" description="" url="/3">
+          <mvcSiteMapNode title="Some Item" imageUrl="fa fa-bolt" description="" url="/4"/>
+          <mvcSiteMapNode title="Another Item" imageUrl="fa fa-bug" description="" url="/5"/>
+        </mvcSiteMapNode>
+      </mvcSiteMapNode>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Right to Left" controller="Home" action="RTL" imageUrl="fa fa-align-right" description="">
+      <mvcSiteMapNode title="Arabic Layout" controller="Home" action="Arabic" description="Arabic Layout"/>
+      <mvcSiteMapNode title="Persian Layout" controller="Home" action="Persian" description="Persian Layout"/>
+    </mvcSiteMapNode>
+  </mvcSiteMapNode>
+
+</mvcSiteMap>

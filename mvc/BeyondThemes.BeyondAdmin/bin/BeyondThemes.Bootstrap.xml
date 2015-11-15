@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BeyondThemes.Bootstrap</name>
+    </assembly>
+    <members>
+        <member name="M:BeyondThemes.Bootstrap.Controls.BootstrapDropDownMenu.AlignTo(System.String)">
+            <summary>
+            Allign menu to "right" or "left"
+            </summary>
+            <param name="direction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeyondThemes.Bootstrap.TypeExtensions.TypeExtensions.AddOrMergeCssClass(System.Web.Mvc.TagBuilder,System.String)">
+            <summary>
+            Adds a new attribute. In case such attribute exists, it will merge them.
+            </summary>
+        </member>
+        <member name="M:BeyondThemes.Bootstrap.TypeExtensions.TypeExtensions.AddOrMergeAttribute(System.Web.Mvc.TagBuilder,System.String,System.String)">
+            <summary>
+            Adds a new attribute. In case such attribute exists, it will merge them.
+            </summary>
+        </member>
+        <member name="M:BeyondThemes.Bootstrap.TypeExtensions.TypeExtensions.MergeHtmlAttributes(System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Merges two dictionaries. If key exists, it overrides it with new value.
+            In case it's a class, it will add new values to existing.
+            </summary>
+        </member>
+        <member name="M:BeyondThemes.Bootstrap.TypeExtensions.TypeExtensions.AddCssStyle(System.Web.Mvc.TagBuilder,System.String,System.String)">
+            <summary>
+            Adds Css style to a TagBuilder element
+            </summary>
+        </member>
+        <member name="M:BeyondThemes.Bootstrap.TypeExtensions.TypeExtensions.GetEnumDescription(System.Enum)">
+            <summary>
+            Gets Description of an Enum
+            </summary>
+            <typeparam name="T">Enum Type</typeparam>
+            <param name="enumerationValue">Enum</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="Home"  description="Home">
+    <siteMapNode url="~/" title=" Dashboard "  description="Dashboard" ImageUrl="glyphicon glyphicon-home"/>
+    <siteMapNode url="~/Pages/Databoxes" title=" Data boxes "  description="beyond containers" ImageUrl="glyphicon glyphicon-tasks"/>
+    <siteMapNode url="~/Pages/Widgets" title=" Widgets "  description="flexible containers" ImageUrl="fa fa-th"/>
+    <siteMapNode title="Elements"  description="Elements" ImageUrl="fa fa-desktop">
+      <siteMapNode url="~/Pages/Elements" title="Basic Elements"  description="Basic"/>
+      <siteMapNode title="Icons"  description="Icons">
+        <siteMapNode url="~/Pages/FontAwesome" title=" FontAwesome "  description="Iconic Fonts" ImageUrl="fa fa-rocket"/>
+        <siteMapNode url="~/Pages/GlyphIcons" title=" GlyphIcons "  description="Sharp and clean symbols" ImageUrl="glyphicon glyphicon-stats"/>
+        <siteMapNode url="~/Pages/Typicons" title=" Typicons "  description="vector icons" ImageUrl="typcn typcn-location-outline"/>
+        <siteMapNode url="~/Pages/WeatherIcons" title=" Weather Icons "  description="Beautiful forcasting icons" ImageUrl="wi wi-hot"/>
+      </siteMapNode>
+      <siteMapNode url="~/Pages/Tabs" title=" Tabs and Accordions "  description="Tabs and Accordions"/>
+      <siteMapNode url="~/Pages/Alerts" title=" Alerts and Tooltips "  description="Tooltips and Notifications"/>
+      <siteMapNode url="~/Pages/Modals" title=" Modals and Wells "  description="Modals and Wells"/>
+      <siteMapNode url="~/Pages/Buttons" title=" Buttons "  description=" Buttons "/>
+      <siteMapNode url="~/Pages/NestableList" title=" Nestable List "  description=" dragable list items "/>
+      <siteMapNode url="~/Pages/TreeView" title=" TreeView "  description=" dragable list items "/>
+    </siteMapNode>
+    <siteMapNode title=" Tables"  description="Tables" ImageUrl="fa fa-table">
+      <siteMapNode url="~/Pages/SimpleTables" title=" Simple Tables "  description="simple and responsive tables"/>
+      <siteMapNode url="~/Pages/DataTables" title=" Data Tables "  description="jquery plugin for data management"/>
+    </siteMapNode>
+    <siteMapNode title=" Forms "  description="Forms" ImageUrl="fa fa-pencil-square-o">
+      <siteMapNode url="~/Pages/FormLayouts" title=" Form Layouts "  description="Form Layouts"/>
+      <siteMapNode url="~/Pages/FormInputs" title=" Form Inputs "  description="Form Inputs"/>
+      <siteMapNode url="~/Pages/DataPickers" title=" Data Pickers "  description="Data Pickers"/>
+      <siteMapNode url="~/Pages/Wizard" title=" Form Wizard "  description="Form Wizard"/>
+      <siteMapNode url="~/Pages/FormValidation" title=" Form Validation "  description="Form Validation"/>
+      <siteMapNode url="~/Pages/FormEditors" title=" Form Editors "  description="Form Editors"/>
+      <siteMapNode url="~/Pages/FormInputMask" title=" Input Mask "  description="Input Mask"/>
+    </siteMapNode>
+    <siteMapNode title="Charts"  description="Charts" ImageUrl="fa fa-bar-chart-o">
+      <siteMapNode url="~/Pages/Flot" title=" Flot Charts "  description="attractive plotting"/>
+      <siteMapNode url="~/Pages/Morris" title=" Morris Charts "  description="simple and flat charts"/>
+      <siteMapNode url="~/Pages/Sparkline" title=" Sparkline Charts "  description="inline charts"/>
+      <siteMapNode url="~/Pages/EasyPieCharts" title=" Easy Pie Charts "  description="lightweight charts"/>
+      <siteMapNode url="~/Pages/ChartJs" title=" ChartJS "  description="Cool HTML5 Charts"/>
+    </siteMapNode>
+    <siteMapNode url="~/Pages/Profile" title=" Profile "  description="Profile" ImageUrl="fa fa-picture-o"/>
+    <siteMapNode title="Mail"  description="Male" ImageUrl="fa fa-envelope-o">
+      <siteMapNode url="~/Pages/Inbox" title=" Inbox "  description="Beyond Mail"/>
+      <siteMapNode url="~/Pages/Compose" title=" Compose Mail "  description="New Mail"/>
+      <siteMapNode url="~/Pages/ViewMessage" title=" View Message "  description="View Message"/>
+    </siteMapNode>
+    <siteMapNode url="~/Pages/Calendar" title=" Calendar "  description="Full Calendar" ImageUrl="fa fa-calendar"/>
+    <siteMapNode title="Pages"  description="Pages" ImageUrl="glyphicon glyphicon-paperclip">
+      <siteMapNode url="~/Pages/TimeLine" title=" TimeLine "  description="Responsive Timeline"/>
+      <siteMapNode url="~/Pages/Pricing" title=" Pricing Tables "  description="Pricing Tables"/>
+      <siteMapNode url="~/Pages/Invoice" title=" Invoice Page "  description="Invoice Page"/>
+      <siteMapNode url="~/Account/Login" title=" Login "  description="Login"/>
+      <siteMapNode url="~/Account/Register" title=" Register "  description="Register"/>
+      <siteMapNode url="~/Pages/Lock" title=" Lock Screen "  description="Lock Screen"/>
+      <siteMapNode url="~/Pages/Typography" title=" Typography "  description="Typography"/>
+    </siteMapNode>
+    <siteMapNode title="More Pages"  description="More Pages" ImageUrl="glyphicon glyphicon-link">
+      <siteMapNode url="~/Pages/Error404" title=" Error 404 "  description="Error 404"/>
+      <siteMapNode url="~/Pages/Error500" title=" Error 500 "  description="Error 500"/>
+      <siteMapNode url="~/Pages/Blank" title=" Blank Page "  description="Blank Page"/>
+      <siteMapNode url="~/Pages/Grid" title=" Grid "  description="Responsive Grid"/>
+      <siteMapNode title=" Multi Level Menu"  description="Multi Level Menu">
+        <siteMapNode title=" Level 3 "  description="Level 3" ImageUrl="fa fa-camera"/>
+        <siteMapNode title=" Level 4 "  description="Level 4" ImageUrl="fa fa-asterisk">
+          <siteMapNode title=" Some Item "  description="Some Item" ImageUrl="fa fa-bolt"/>
+          <siteMapNode title=" Another Item "  description="Another Item" ImageUrl="fa fa-bug"/>
+        </siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Right to Left"  description="Right to Left" ImageUrl="fa fa-align-right">
+      <siteMapNode url="~/Pages/Arabic" title=" Arabic Layout "  description="Arabic Layout"/>
+      <siteMapNode url="~/Pages/Persian" title=" Persian Layout "  description="Persian Layout"/>
+    </siteMapNode>
+    <siteMapNode url="~/Pages/Versions" title=" BeyondAdmin Versions "  description="BeyondAdmin Versions" ImageUrl="glyphicon glyphicon-fire themesecondary"/>
+  </siteMapNode>
+</siteMap>
