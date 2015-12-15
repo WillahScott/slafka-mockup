@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="img/slafka.png" type="image/x-icon">
+
+    <title>Slafka</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link id="beyond-link" href="css/beyond.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/vendor/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/vendor/metisMenu.min.css" rel="stylesheet" />
+    <link href="css/vendor/select2.css" rel="stylesheet" />
+    <link href="css/vendor/ui-grid.min.css" rel="stylesheet" />
+    <link href="css/vendor/xeditable.css" rel="stylesheet" />
+    <link href="css/bddfwr2.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+      <div ng-controller="BDDFrameworkController">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar" data-ng-include=" 'navbar.html' "></div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div class="main-container container-fluid">
+            <!-- Page Container -->
+            <div class="page-container">
+                <!-- Page Sidebar -->
+                <div class="page-sidebar" id="sidebar" data-ng-include=" 'sidebar.html' ">
+                </div>
+                <!-- /Page Sidebar -->
+                <!-- Page Content -->
+
+            </div>
+            <!-- /Page Container -->
+            <!-- Main Container -->
+
+        </div>
+      </div>
+
+        <div id="page-wrapper">
+          <br />
+          <div class="container-fluid" ng-controller="DataboxesCtrl">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6 col-xs-12">
+                    <div class="databox databox-vertical databox-xxlg databox-halved radius-bordered databox-shadowed">
+                        <div class="databox-top no-padding bg-palegreen">
+                            <div class="databox-row row-5 text-align-left padding-10">
+                                <div class="databox-stat white bg-palegreen font-120">
+                                    <i class="stat-icon fa fa-caret-up icon-xlg"></i>
+                                </div>
+                                <span class="databox-number no-margin">639.73</span>
+                                <span class="databox-text no-margin">-29 (4.2%)</span>
+                            </div>
+                            <div class="databox-row row-7">
+                                <div class="databox-sparkline no-margin">
+                                    <div style="height: 65px;" ui-jq="sparkline" ui-options="[8,4,1,2,4,6,2,4,4,8,10,7, 7, 6, 5, 7, 9, 10, 8, 7, 6, 6], {type:'bar', height:88, width:'100%', barColor:'#bfe19a', barWidth:5, barSpacing:5 }"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="databox-bottom bg-white no-padding">
+                            <div class="databox-row row-2 padding-10">
+                                <span class="databox-text sonic-silver no-margin"><i class="glyphicon glyphicon-time gray"></i>Today, 4:15 PM</span>
+                            </div>
+                            <div class="databox-row row-4 padding-10">
+                                <div class="col-lg-6 bg-whitesmoke text-align-center">
+                                    <span class="databox-number gray">16.8 M</span>
+                                </div>
+                                <div class="col-lg-6 bg-whitesmoke text-align-center bordered-left-3 bordered-white">
+                                    <span class="databox-number gray">12 M</span>
+                                </div>
+                            </div>
+                            <div class="databox-row row-2">
+                                <div class="col-lg-6">
+                                    <span class="databox-text sonic-silver no-margin"><i class="fa fa-caret-down orange"></i>Monthly</span>
+                                </div>
+                                <div class="col-lg-6">
+                                    <span class="databox-text sonic-silver no-margin"><i class="fa fa-caret-up palegreen"></i>Yearly</span>
+                                </div>
+                            </div>
+                            <div class="databox-row row-4">
+                                <div class="col-lg-6 text-align-center">
+                                    <div class="databox-sparkline">
+                                        <div style="height: 65px;" ui-jq="sparkline" ui-options="[2,2,3,1,4,2,3,1,3], {type:'bar', height:35, width:'100%', barColor:'#a0d468', barWidth:5, barSpacing:3 }"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 padding-5 text-align-center">
+                                    <div class="databox-sparkline">
+                                        <div style="height: 65px;" ui-jq="sparkline" ui-options="[2,6,7,9,8,5,3,4,4,3,6,7], {type:'line', height:35, width:'100%', fillColor:false, lineColor:'#bfe19a', spotColor:'#fafafa', minSpotColor:'#fafafa', maxSpotColor:'#ffce55', highlightSpotColor:'#fb6e52', highlightLineColor:'#fb6e52', lineWidth:2, spotRadius:3 }"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                    <div class="databox databox-xxlg radius-bordered databox-shadowed databox-vertical databox-graded">
+                        <div class="databox-top bordered-bottom-2 bordered-orange bg-ivory">
+                            <div class="col-lg-8 col-sm-8 col-xs-8 text-align-left">
+                                <span class="databox-text carbon">DATA TRANSFER STATS</span>
+                                <span class="databox-text carbon no-margin">Last Week</span>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-xs-4 text-align-right">
+                                <div class="databox-stat bg-palegreen radius-bordered">
+                                    <div class="stat-text">58%</div>
+                                    <i class="stat-icon fa fa-arrow-up"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="databox-bottom">
+                            <div ui-jq="plot" ui-options="{{DataTransferChartData}}, {{DataTransferChartOptions}}" class="chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-xs-12">
+                    <div class="databox databox-xxlg databox-halved radius-bordered databox-shadowed databox-graded databox-vertical">
+                        <div class="databox-top bg-pink padding-30">
+                            <div class="databox-stat stat-left radius-bordered">
+                                <div class="stat-text white">PAGE VIEWS</div>
+                            </div>
+                            <div class="databox-stat white font-120">
+                                <i class="stat-icon fa fa-caret-down icon-xlg"></i>
+                            </div>
+                            <div class="databox-sparkline">
+                                <div ui-jq="sparkline" ui-options="[1,3,2,5,4,0,5,7,6,5], {type:'line', height:90, width:'100%', fillColor:false, lineColor:'#fff', spotColor:'#fafafa', minSpotColor:'#fafafa', maxSpotColor:'#ffce55', highlightSpotColor:'#f5f5f5', highlightLineColor:'#f5f5f5', lineWidth:3, spotRadius:0 }"></div>
+                            </div>
+                        </div>
+                        <div class="databox-bottom padding-20">
+                            <div class="databox-row row-6">
+                                <div class="databox-cell cell-4">
+                                    <span class="databox-number pink no-margin">4,129</span>
+                                    <span class="databox-text darkgray no-margin">Profile</span>
+                                </div>
+                                <div class="databox-cell cell-8 padding-10">
+                                    <div class="databox-sparkline">
+                                        <div ui-jq="sparkline" ui-options="[2,4,5,6,3,2,0,4,2,4,3,2,6,3,2], {type:'bar', height:20, width:'100%', barColor:'#ccc', barWidth:5, barSpacing:2 }"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="databox-row row-6">
+                                <div class="databox-cell cell-4">
+                                    <span class="databox-number pink no-margin">2,703</span>
+                                    <span class="databox-text darkgray no-margin">About</span>
+                                </div>
+                                <div class="databox-cell cell-8 padding-10">
+                                    <div class="databox-sparkline">
+                                        <div ui-jq="sparkline" ui-options="[4,2,4,3,2,6,3,2,2,4,5,6,3,2,0], {type:'bar', height:20, width:'100%', barColor:'#ccc', barWidth:5, barSpacing:2 }"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jquery/bootstrap.js"></script>
+    <script src="lib/angular/angular.js"></script>
+
+    <script src="lib/utilities.js"></script>
+
+    <script src="lib/angular/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular/angular-cookies/angular-cookies.js"></script>
+    <script src="lib/angular/angular-resource/angular-resource.js"></script>
+    <script src="lib/angular/angular-sanitize/angular-sanitize.js"></script>
+    <script src="lib/angular/angular-touch/angular-touch.js"></script>
+
+    <script src="lib/angular/angular-ui-router/angular-ui-router.js"></script>
+    <script src="lib/angular/angular-ocLazyLoad/ocLazyLoad.js"></script>
+    <script src="lib/angular/angular-ngStorage/ngStorage.js"></script>
+    <script src="lib/angular/angular-ui-utils/angular-ui-utils.js"></script>
+    <script src="lib/angular/angular-breadcrumb/angular-breadcrumb.js"></script>
+
+    <script src="lib/angular/angular-ui-bootstrap/ui-bootstrap.js"></script>
+    <script src="lib/jquery/slimscroll/jquery.slimscroll.js"></script>
+
+    <script src='lib/jquery/charts/flot/jquery.flot.js'></script>
+    <script src='lib/jquery/charts/flot/jquery.flot.orderBars.js'></script>
+    <script src='lib/jquery/charts/flot/jquery.flot.tooltip.js'></script>
+    <script src='lib/jquery/charts/flot/jquery.flot.resize.js'></script>
+    <script src='lib/jquery/charts/flot/jquery.flot.selection.js'></script>
+    <script src='lib/jquery/charts/flot/jquery.flot.crosshair.js'></script>
+    <script src='lib/jquery/charts/flot/jquery.flot.stack.js'></script>
+    <script src='lib/jquery/charts/flot/jquery.flot.time.js'></script>
+    <script src='lib/jquery/charts/flot/jquery.flot.pie.js'></script>
+    <script src='lib/jquery/charts/morris/raphael-2.0.2.min.js'></script>
+    <script src='lib/jquery/charts/chartjs/chart.js'></script>
+    <script src='lib/jquery/charts/morris/morris.js'></script>
+    <script src='lib/jquery/charts/sparkline/jquery.sparkline.js'></script>
+    <script src='lib/jquery/charts/easypiechart/jquery.easypiechart.js'></script>
+    <script src="js/app.js"></script>
+    <script src="js/realtimechart.js"></script>
+    <!--<script src="js/databoxes.js"></script>-->
+    <script src="js/config.lazyload.js"></script>
+
+<!--<script src="js/vendor/angular.min.js"></script>
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/jquery-ui.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script> -->
+    <script src="js/vendor/metisMenu.min.js"></script>
+    <script src="js/vendor/select2.min.js"></script>
+    <script src="js/vendor/ui-grid.min.js"></script>
+    <script src="js/vendor/xeditable.min.js"></script>
+    <script src="js/FileSaver.js"></script>
+    <script src="js/bddfwr2.js"></script>
+    <script src="js/multistepform.js"></script>
+    <script src="js/sidebar.js"></script>
+
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        // Check for the various File API support.
+        if (window.File && window.FileReader && window.FileList && window.Blob) {
+          // Great success! All the File APIs are supported.
+          //alert('File supported!');
+        } else {
+          alert('The File APIs are not fully supported in this browser.');
+        }
+        //$('#step1').hide();
+    });
+    </script>
+
+
+</body>
+
+</html>

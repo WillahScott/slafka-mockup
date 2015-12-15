@@ -1,0 +1,202 @@
+﻿<div class="row" ng-controller="DataboxesCtrl">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div class="databox databox-vertical databox-xxlg databox-halved radius-bordered databox-shadowed">
+                    <div class="databox-top no-padding bg-palegreen">
+                        <div class="databox-row row-5 text-align-left padding-10">
+                            <div class="databox-stat white bg-palegreen font-120">
+                                <i class="stat-icon fa fa-caret-up icon-xlg"></i>
+                            </div>
+                            <span class="databox-number no-margin">Users: 13</span>
+                            <span class="databox-text no-margin">Messages: 128 (+4.2%)</span>
+                        </div>
+                        <div class="databox-row row-7">
+                            <div class="databox-sparkline no-margin">
+                                <div style="height: 65px;" ui-jq="sparkline" ui-options="[18,12,20,26,22,20,10], {type:'bar', height:88, width:'100%', barColor:'#bfe19a', barWidth:20, barSpacing:10 }"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="databox-bottom bg-white no-padding">
+                        <div class="databox-row row-2 padding-10">
+                            <span class="databox-text sonic-silver no-margin"><i class="glyphicon glyphicon-time gray"></i>Last Message: 14 Dec, 4:15 PM</span>
+                        </div>
+                        <div class="databox-row row-2 padding-10 padding-top-20">
+                            <span class="databox-text sonic-silver no-margin"><i class="glyphicon glyphicon-time gray"></i>History View (messages): </span>
+                        </div>
+                        <div class="databox-row row-2 padding-10">
+                            <div class="col-lg-6">
+                                <span class="databox-text sonic-silver no-margin text-align-center"> Monthly</span>
+                            </div>
+                            <div class="col-lg-6">
+                                <span class="databox-text sonic-silver no-margin text-align-center"> Weekly</span>
+                            </div>
+                        </div>
+                        <div class="databox-row row-4 padding-top-10">
+                            <div class="col-lg-6 text-align-center">
+                                <div class="databox-sparkline">
+                                    <div style="height: 65px;" ui-jq="sparkline" ui-options="[868,900,789,659,688,965,734,832,893], {type:'bar', height:35, width:'100%', barColor:'#a0d468', barWidth:5, barSpacing:3 }"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-align-center">
+                                <div class="databox-sparkline">
+                                    <div style="height: 65px;" ui-jq="sparkline" ui-options="[134,145,111,121,142,129,98,95,110], {type:'bar', height:35, width:'100%', barColor:'#fb6e52', barWidth:5, barSpacing:3 }"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+                <div class="databox databox-xxlg radius-bordered databox-shadowed databox-vertical databox-graded">
+                    <div class="databox-top bordered-bottom-2 bordered-orange bg-ivory">
+                        <div class="col-lg-8 col-sm-8 col-xs-8 text-align-left">
+                            <span class="databox-text carbon">User Activity</span>
+                            <span class="databox-text carbon no-margin">This Week vs Last Week</span>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 col-xs-4 text-align-right">
+                            <div class="databox-stat bg-palegreen radius-bordered">
+                                <div class="stat-text">16%</div>
+                                <i class="stat-icon fa fa-arrow-up"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="databox-bottom">
+                        <div ui-jq="plot" ui-options="{{DataTransferChartData}}, {{DataTransferChartOptions}}" class="chart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div class="databox databox-xxlg databox-halved radius-bordered databox-shadowed databox-graded databox-vertical">
+                    <div class="databox-top bg-pink padding-30">
+                        <div class="databox-stat stat-left radius-bordered">
+                            <div class="stat-text white">Sentiment Analysis</div>
+                        </div>
+                        <div class="databox-stat white font-120">
+                            <i class="stat-icon fa fa-caret-down icon-xlg"></i>
+                        </div>
+                        <div class="databox-sparkline">
+                            <div ui-jq="sparkline" ui-options="[1,3,2,5,4,0,5,7,6,5], {type:'line', height:90, width:'100%', fillColor:false, lineColor:'#fff', spotColor:'#fafafa', minSpotColor:'#fafafa', maxSpotColor:'#ffce55', highlightSpotColor:'#f5f5f5', highlightLineColor:'#f5f5f5', lineWidth:3, spotRadius:0 }"></div>
+                        </div>
+                    </div>
+                    <div class="databox-bottom padding-20">
+                        <div class="databox-row row-6">
+                            <div class="databox-cell cell-4">
+                                <span class="databox-number pink no-margin">6.2</span>
+                                <span class="databox-text darkgray no-margin">MTD Avg</span>
+                            </div>
+                            <div class="databox-cell cell-8 padding-10">
+                                <div class="databox-sparkline">
+                                    <div ui-jq="sparkline" ui-options="[2,4,5,6,3,2,0,4,2], {type:'bar', height:20, width:'100%', barColor:'#ccc', barWidth:10, barSpacing:2 }"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="databox-row row-6">
+                            <div class="databox-cell cell-4">
+                                <span class="databox-number pink no-margin">7.1</span>
+                                <span class="databox-text darkgray no-margin">WTD Avg</span>
+                            </div>
+                            <div class="databox-cell cell-8 padding-10">
+                                <div class="databox-sparkline">
+                                    <div ui-jq="sparkline" ui-options="[4,2,4,3,2,6,3,2,2], {type:'bar', height:20, width:'100%', barColor:'#ccc', barWidth:10, barSpacing:2 }"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end of Ankit's chart -->
+
+        <div class="row" ng-show="false">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+                <div class="databox databox-xxlg radius-bordered databox-shadowed databox-halved">
+                    <div class="databox-left bg-whitesmoke padding-top-10">
+                        <div class="databox-stat bg-orange radius-bordered">
+                            <div class="stat-text">24 %</div>
+                            <i class="stat-icon fa fa-long-arrow-down"></i>
+                        </div>
+                        <div class="databox-stat stat-left radius-bordered">
+                            <div class="stat-text darkgray">CPU USAGE</div>
+                        </div>
+                        <canvas id="pie" height="230" width="230"></canvas>
+                    </div>
+                    <div class="databox-right bordered-thick bordered-whitesmoke bg-blue no-padding">
+                        <div class="databox-stat bg-yellow radius-bordered">
+                            <div class="stat-text">10 %</div>
+                            <i class="stat-icon fa fa-long-arrow-up"></i>
+                        </div>
+                        <div class="databox-stat stat-left radius-bordered">
+                            <div class="stat-text white">CPU USAGE</div>
+                        </div>
+                        <div databox-flot-chart-realtime class="chart chart-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Vertical Databoxes -->
+        <div class="row" ng-show="false">
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div class="databox databox-xlg radius-bordered databox-shadowed databox-vertical">
+                    <div class="databox-top bg-blue">
+                        <span class="databox-header">JANUARY 2014</span>
+                    </div>
+                    <div class="databox-bottom bg-white no-padding">
+                        <div id="donut-chart" style="height:150px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="databox databox-xlg databox-halved radius-bordered databox-shadowed databox-vertical">
+                    <div class="databox-top bg-white padding-10">
+                        <div class="col-lg-4 col-sm-4 col-xs-4">
+                            <img src="assets/img/avatars/Sergey-Azovskiy.jpg" style="width:75px; height:75px;" class="image-circular bordered-3 bordered-palegreen" />
+                        </div>
+                        <div class="col-lg-8 col-sm-8 col-xs-8 text-align-left padding-10">
+                            <span class="databox-header carbon no-margin">Martin James</span>
+                            <span class="databox-text lightcarbon no-margin"> Software Manager at Microsoft </span>
+                        </div>
+                    </div>
+                    <div class="databox-bottom bg-white no-padding">
+                        <div class="databox-row row-12">
+                            <div class="databox-row row-6 no-padding">
+                                <div class="databox-cell cell-4 no-padding text-align-center bordered-right bordered-platinum">
+                                    <span class="databox-text sonic-silver  no-margin">Posts</span>
+                                    <span class="databox-number lightcarbon no-margin">510</span>
+                                </div>
+                                <div class="databox-cell cell-4 no-padding text-align-center bordered-right bordered-platinum">
+                                    <span class="databox-text sonic-silver no-margin">Followers</span>
+                                    <span class="databox-number lightcarbon no-margin">908</span>
+                                </div>
+                                <div class="databox-cell cell-4 no-padding text-align-center">
+                                    <span class="databox-text sonic-silver no-margin">Following</span>
+                                    <span class="databox-number lightcarbon no-margin">286</span>
+                                </div>
+                            </div>
+                            <div class="databox-row row-6 padding-10">
+                                <button class="btn btn-palegreen btn-sm pull-right">FOLLOW</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-sm-6 col-xs-12">
+                <div class="databox databox-xlg radius-bordered databox-shadowed databox-vertical">
+                    <div class="databox-top bg-white">
+                        <span class="databox-header orange">WEEKLY SALE STAT</span>
+                    </div>
+                    <div class="databox-bottom bg-white no-padding">
+                        <div class="databox-sparkline">
+                            <div style="height: 65px;" ui-jq="sparkline" ui-options="[2,6,7,9,8,5,3,4,4,3,6,7], {type:'line', height:158, width:'100%', fillColor:'#ffce55', lineColor:'#fb6e52', spotColor:'#fb6e52', minSpotColor:'#fafafa', maxSpotColor:'#ffce55', highlightSpotColor:'#fff', highlightLineColor:'#fff', lineWidth:3, spotRadius:0 }"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>

@@ -114,7 +114,7 @@ angular.module('app')
                         $timeout(function () {
                             if(description == '')
                                 element.text(title);
-                            else 
+                            else
                                 element.html(title + ' <small> <i class="fa fa-angle-right"> </i> '+ description + ' </small>');
                         }, 0, false);
                     };

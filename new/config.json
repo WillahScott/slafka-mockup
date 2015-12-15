@@ -1,0 +1,113 @@
+{
+	"functions": [
+		{
+			"id": 0,
+			"title": "New Data",
+			"subSteps": [
+				{
+					"title": "Define Tables", 
+					"subtitle": "",
+					"columnDefs": [
+						{
+							"id": 0,
+							"displayName": "Field Name",
+							"field": "fieldName"
+						},
+						{
+							"id": 1,
+							"displayName": "Unique Field",
+							"field": "uniqueField"
+
+						},
+						{
+							"id": 2,
+							"displayName": "Type",
+							"field": "type",
+							"editableCellTemplate": "ui-grid/dropdownEditor",
+							"cellFilter": "typeFilter", 
+							"editDropdownOptionsArray": [
+        						{ "id": 1, "value": "regex" },
+        						{ "id": 2, "value": "dictionary" }
+     						]
+						},
+						{
+							"id": 3,
+							"displayName": "Specification",
+							"field": "specification"
+						}
+					]
+				},
+				{
+					"title": "Define Relations", 
+					"subtitle": ""
+				},
+				{
+					"title": "Output Options", 
+					"subtitle": "",
+					"formats": [
+						{
+							"id":0,
+							"value":"CSV"
+						},
+						{
+							"id":1,
+							"value":"XML"
+						}
+					],
+					"headers": [
+						{
+							"id":0,
+							"value":"False"
+						},
+						{
+							"id":1,
+							"value":"True"
+						}
+					]
+				},
+				{
+					"title": "Review/Submit", 
+					"subtitle": ""
+				}]
+		},
+		{
+			"id": 1,
+			"title": "History"
+		},
+		{
+			"id": 2,
+			"title": "Dictionary"
+		},
+		{
+			"id": 3,
+			"title": "Help"
+		}
+
+	],
+	"urls": {
+		"newDataPost": "",
+		"historyGet": ""
+	},
+	"newDataSkeleton": {
+		"job": {
+			"alias": "<Job Name>"
+		},
+		"tables": [
+			{
+				"id": 0,
+				"name": "table1",
+				"columns": [
+					{
+						"id": 0,
+						"fieldName": "column",
+						"uniqueField": true,
+						"type": 1,
+						"specification": "9[0-9]{9}"
+					}
+				]
+			}
+		],
+		"relations": [
+		]
+	}
+}

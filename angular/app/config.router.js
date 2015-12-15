@@ -15,7 +15,7 @@ angular.module('app')
             function($stateProvider, $urlRouterProvider) {
 
                 $urlRouterProvider
-                    .otherwise('/app/dashboard');
+                    .otherwise('/app/tsanalysis');
                 $stateProvider
                     .state('app', {
                         abstract: true,
@@ -118,11 +118,11 @@ angular.module('app')
                         }
                     })
                     .state('app.databoxes', {
-                        url: '/databoxes',
-                        templateUrl: 'views/databoxes.html',
+                        url: '/tsanalysis',
+                        templateUrl: 'views/tsanalysis.html',
                         ncyBreadcrumb: {
-                            label: 'Databoxes',
-                            description: 'beyond containers'
+                            label: 'TS Analysis',
+                            description: 'traffic & sentiment analysis'
                         },
                         resolve: {
                             deps: [
@@ -131,7 +131,6 @@ angular.module('app')
                                     return $ocLazyLoad.load({
                                         serie: true,
                                         files: [
-                                            'app/directives/realtimechart.js',
                                             'lib/jquery/charts/flot/jquery.flot.js',
                                             'lib/jquery/charts/flot/jquery.flot.orderBars.js',
                                             'lib/jquery/charts/flot/jquery.flot.tooltip.js',
@@ -745,6 +744,20 @@ angular.module('app')
                         templateUrl: 'views/timeline.html',
                         ncyBreadcrumb: {
                             label: 'Responsive Timeline'
+                        }
+                    })
+                    .state('app.impmsgs', {
+                        url: '/important_messages',
+                        templateUrl: 'views/important_messages.html',
+                        ncyBreadcrumb: {
+                            label: 'Important Messages'
+                        }
+                    })
+                    .state('app.artgal', {
+                        url: '/artefact_gallery',
+                        templateUrl: 'views/artefact_gallery.html',
+                        ncyBreadcrumb: {
+                            label: 'Artefact Gallery'
                         }
                     })
                     .state('app.pricing', {

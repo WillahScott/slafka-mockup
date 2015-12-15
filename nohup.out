@@ -1,0 +1,226 @@
+0    [main] INFO  org.eclipse.jetty.server.Server  – jetty-8.1.10.v20130312
+47   [main] INFO  org.eclipse.jetty.deploy.providers.ScanningAppProvider  – Deployment monitor /usr/local/Cellar/solr/4.8.1/libexec/example/contexts at interval 0
+67   [main] INFO  org.eclipse.jetty.deploy.DeploymentManager  – Deployable added: /usr/local/Cellar/solr/4.8.1/libexec/example/contexts/solr-jetty-context.xml
+2012 [main] INFO  org.eclipse.jetty.webapp.StandardDescriptorProcessor  – NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+2130 [main] INFO  org.apache.solr.servlet.SolrDispatchFilter  – SolrDispatchFilter.init()
+2159 [main] INFO  org.apache.solr.core.SolrResourceLoader  – JNDI not configured for solr (NoInitialContextEx)
+2160 [main] INFO  org.apache.solr.core.SolrResourceLoader  – using system property solr.solr.home: /Users/ankittharwani/Work/os/solr/data
+2170 [main] INFO  org.apache.solr.core.SolrResourceLoader  – new SolrResourceLoader for directory: '/Users/ankittharwani/Work/os/solr/data/'
+2418 [main] INFO  org.apache.solr.core.ConfigSolr  – Loading container configuration from /Users/ankittharwani/Work/os/solr/data/solr.xml
+2731 [main] INFO  org.apache.solr.core.CoreContainer  – New CoreContainer 1292040526
+2733 [main] INFO  org.apache.solr.core.CoreContainer  – Loading cores into CoreContainer [instanceDir=/Users/ankittharwani/Work/os/solr/data/]
+2763 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  – Setting socketTimeout to: 0
+2764 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  – Setting urlScheme to: 
+2776 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  – Setting connTimeout to: 0
+2776 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  – Setting maxConnectionsPerHost to: 20
+2777 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  – Setting corePoolSize to: 0
+2781 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  – Setting maximumPoolSize to: 2147483647
+2782 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  – Setting maxThreadIdleTime to: 5
+2782 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  – Setting sizeOfQueue to: -1
+2783 [main] INFO  org.apache.solr.handler.component.HttpShardHandlerFactory  – Setting fairnessPolicy to: false
+3045 [main] INFO  org.apache.solr.logging.LogWatcher  – SLF4J impl is org.slf4j.impl.Log4jLoggerFactory
+3047 [main] INFO  org.apache.solr.logging.LogWatcher  – Registering Log Listener [Log4j (org.slf4j.impl.Log4jLoggerFactory)]
+3049 [main] INFO  org.apache.solr.core.CoreContainer  – Host Name: 
+3222 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.SolrResourceLoader  – new SolrResourceLoader for directory: '/Users/ankittharwani/Work/os/solr/data/core0/'
+3225 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.SolrResourceLoader  – new SolrResourceLoader for directory: '/Users/ankittharwani/Work/os/solr/data/bdddatalineage/'
+3222 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.SolrResourceLoader  – new SolrResourceLoader for directory: '/Users/ankittharwani/Work/os/solr/data/core1/'
+3340 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.SolrConfig  – Using Lucene MatchVersion: LUCENE_48
+3344 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.SolrConfig  – Using Lucene MatchVersion: LUCENE_48
+3372 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.SolrConfig  – Using Lucene MatchVersion: LUCENE_48
+3480 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.Config  – Loaded SolrConfig: solrconfig.xml
+3480 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.Config  – Loaded SolrConfig: solrconfig.xml
+3481 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.Config  – Loaded SolrConfig: solrconfig.xml
+3513 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.schema.IndexSchema  – Reading Solr Schema from schema.xml
+3539 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.schema.IndexSchema  – [core1] Schema name=example core one
+3541 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.schema.IndexSchema  – Reading Solr Schema from schema.xml
+3541 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.schema.IndexSchema  – Reading Solr Schema from schema.xml
+3574 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.schema.IndexSchema  – [core0] Schema name=example core zero
+3579 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.schema.IndexSchema  – [bdddatalineage] Schema name=bdddatalineage
+3642 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.schema.IndexSchema  – default search field in schema is name
+3643 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.schema.IndexSchema  – query parser default operator is OR
+3645 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.schema.IndexSchema  – default search field in schema is tDb
+3647 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.schema.IndexSchema  – query parser default operator is OR
+3648 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.schema.IndexSchema  – unique key field: id
+3649 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.schema.IndexSchema  – default search field in schema is name
+3651 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.CoreContainer  – Creating SolrCore 'bdddatalineage' using configuration from instancedir /Users/ankittharwani/Work/os/solr/data/bdddatalineage/
+3652 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.schema.IndexSchema  – query parser default operator is OR
+3654 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.schema.IndexSchema  – unique key field: id
+3656 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.CoreContainer  – Creating SolrCore 'core0' using configuration from instancedir /Users/ankittharwani/Work/os/solr/data/core0/
+3656 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.schema.IndexSchema  – unique key field: id
+3657 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.CoreContainer  – Creating SolrCore 'core1' using configuration from instancedir /Users/ankittharwani/Work/os/solr/data/core1/
+3692 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  – solr.StandardDirectoryFactory
+3692 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.SolrCore  – solr.StandardDirectoryFactory
+3695 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.SolrCore  – solr.StandardDirectoryFactory
+3727 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  – [core0] Opening new SolrCore at /Users/ankittharwani/Work/os/solr/data/core0/, dataDir=/Users/ankittharwani/Work/os/solr/data/core0/data/
+3728 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  – JMX monitoring not detected for core: core0
+3727 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] Opening new SolrCore at /Users/ankittharwani/Work/os/solr/data/bdddatalineage/, dataDir=/Users/ankittharwani/Work/os/solr/data/bdddatalineage/data/
+3729 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.SolrCore  – JMX monitoring not detected for core: bdddatalineage
+3728 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.SolrCore  – [core1] Opening new SolrCore at /Users/ankittharwani/Work/os/solr/data/core1/, dataDir=/Users/ankittharwani/Work/os/solr/data/core1/data/
+3730 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.SolrCore  – JMX monitoring not detected for core: core1
+3754 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.CachingDirectoryFactory  – return new directory for /Users/ankittharwani/Work/os/solr/data/bdddatalineage/data
+3754 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  – return new directory for /Users/ankittharwani/Work/os/solr/data/core0/data
+3754 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.CachingDirectoryFactory  – return new directory for /Users/ankittharwani/Work/os/solr/data/core1/data
+3799 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.SolrCore  – New index directory detected: old=null new=/Users/ankittharwani/Work/os/solr/data/core1/data/index/
+3800 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  – New index directory detected: old=null new=/Users/ankittharwani/Work/os/solr/data/core0/data/index/
+3800 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.SolrCore  – New index directory detected: old=null new=/Users/ankittharwani/Work/os/solr/data/bdddatalineage/data/index/
+3801 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.CachingDirectoryFactory  – return new directory for /Users/ankittharwani/Work/os/solr/data/core0/data/index
+3801 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.CachingDirectoryFactory  – return new directory for /Users/ankittharwani/Work/os/solr/data/core1/data/index
+3803 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.CachingDirectoryFactory  – return new directory for /Users/ankittharwani/Work/os/solr/data/bdddatalineage/data/index
+3983 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.SolrCore  – no updateRequestProcessorChain defined as default, creating implicit default
+3983 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  – no updateRequestProcessorChain defined as default, creating implicit default
+3983 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.SolrCore  – no updateRequestProcessorChain defined as default, creating implicit default
+4004 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.RequestHandlers  – created /get: solr.RealTimeGetHandler
+4004 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.RequestHandlers  – adding lazy requestHandler: solr.ReplicationHandler
+4006 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.RequestHandlers  – created /replication: solr.ReplicationHandler
+4012 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.RequestHandlers  – created standard: solr.StandardRequestHandler
+4013 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.RequestHandlers  – adding lazy requestHandler: solr.FieldAnalysisRequestHandler
+4013 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.RequestHandlers  – created /analysis/field: solr.FieldAnalysisRequestHandler
+4018 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.RequestHandlers  – created /get: solr.RealTimeGetHandler
+4019 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.RequestHandlers  – adding lazy requestHandler: solr.ReplicationHandler
+4020 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.RequestHandlers  – created /replication: solr.ReplicationHandler
+4020 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.RequestHandlers  – created standard: solr.StandardRequestHandler
+4020 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.RequestHandlers  – created /update: solr.UpdateRequestHandler
+4020 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.RequestHandlers  – adding lazy requestHandler: solr.FieldAnalysisRequestHandler
+4021 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.RequestHandlers  – created /analysis/field: solr.FieldAnalysisRequestHandler
+4022 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.RequestHandlers  – created /update: solr.UpdateRequestHandler
+4022 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.RequestHandlers  – created /admin/: org.apache.solr.handler.admin.AdminHandlers
+4023 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.RequestHandlers  – created /get: solr.RealTimeGetHandler
+4023 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.RequestHandlers  – adding lazy requestHandler: solr.ReplicationHandler
+4023 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.RequestHandlers  – created /replication: solr.ReplicationHandler
+4024 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.RequestHandlers  – created /admin/: org.apache.solr.handler.admin.AdminHandlers
+4026 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.RequestHandlers  – created standard: solr.StandardRequestHandler
+4026 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.RequestHandlers  – adding lazy requestHandler: solr.FieldAnalysisRequestHandler
+4026 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.RequestHandlers  – created /analysis/field: solr.FieldAnalysisRequestHandler
+4027 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.RequestHandlers  – created /update: solr.UpdateRequestHandler
+4027 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.RequestHandlers  – created /admin/: org.apache.solr.handler.admin.AdminHandlers
+4034 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.RequestHandlers  – created /admin/ping: solr.PingRequestHandler
+4034 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.RequestHandlers  – created /admin/ping: solr.PingRequestHandler
+4037 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.RequestHandlers  – created /admin/ping: solr.PingRequestHandler
+4067 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.handler.loader.XMLLoader  – xsltCacheLifetimeSeconds=60
+4069 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.handler.loader.XMLLoader  – xsltCacheLifetimeSeconds=60
+4070 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.handler.loader.XMLLoader  – xsltCacheLifetimeSeconds=60
+4118 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  – Hard AutoCommit: disabled
+4118 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.SolrCore  – Hard AutoCommit: disabled
+4119 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.SolrCore  – Soft AutoCommit: disabled
+4119 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  – Soft AutoCommit: disabled
+4169 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.SolrCore  – Hard AutoCommit: disabled
+4170 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.SolrCore  – Soft AutoCommit: disabled
+4243 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  – SolrDeletionPolicy.onInit: commits: num=1
+	commit{dir=/Users/ankittharwani/Work/os/solr/data/core0/data/index,segFN=segments_1,generation=1}
+4244 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.SolrCore  – SolrDeletionPolicy.onInit: commits: num=1
+	commit{dir=/Users/ankittharwani/Work/os/solr/data/core1/data/index,segFN=segments_1,generation=1}
+4245 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.SolrCore  – newest commit generation = 1
+4244 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.SolrCore  – SolrDeletionPolicy.onInit: commits: num=1
+	commit{dir=/Users/ankittharwani/Work/os/solr/data/bdddatalineage/data/index,segFN=segments_2,generation=2}
+4245 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.SolrCore  – newest commit generation = 2
+4244 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.SolrCore  – newest commit generation = 1
+4276 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.search.SolrIndexSearcher  – Opening Searcher@2bf465f9[core0] main
+4277 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.search.SolrIndexSearcher  – Opening Searcher@75686c9b[core1] main
+4303 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.rest.ManagedResourceStorage  – File-based storage initialized to use dir: /Users/ankittharwani/Work/os/solr/data/core0/conf
+4304 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.rest.RestManager  – Initializing RestManager with initArgs: {storageDir=/Users/ankittharwani/Work/os/solr/data/core0/conf/}
+4303 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.rest.ManagedResourceStorage  – File-based storage initialized to use dir: /Users/ankittharwani/Work/os/solr/data/core1/conf
+4305 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.rest.RestManager  – Initializing RestManager with initArgs: {storageDir=/Users/ankittharwani/Work/os/solr/data/core1/conf/}
+4324 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.rest.ManagedResourceStorage  – Reading _rest_managed.json using file:dir=/Users/ankittharwani/Work/os/solr/data/core1/conf
+4325 [coreLoadExecutor-4-thread-2] WARN  org.apache.solr.rest.ManagedResource  – No stored data found for /rest/managed
+4325 [coreLoadExecutor-4-thread-2] WARN  org.apache.solr.rest.ManagedResource  – No registered observers for /rest/managed
+4325 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.rest.ManagedResourceStorage  – Reading _rest_managed.json using file:dir=/Users/ankittharwani/Work/os/solr/data/core0/conf
+4326 [coreLoadExecutor-4-thread-1] WARN  org.apache.solr.rest.ManagedResource  – No stored data found for /rest/managed
+4328 [coreLoadExecutor-4-thread-1] WARN  org.apache.solr.rest.ManagedResource  – No registered observers for /rest/managed
+4329 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.rest.RestManager  – Initializing 0 registered ManagedResources
+4329 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.rest.RestManager  – Initializing 0 registered ManagedResources
+4356 [searcherExecutor-6-thread-1] INFO  org.apache.solr.core.SolrCore  – [core0] Registered new searcher Searcher@2bf465f9[core0] main{StandardDirectoryReader(segments_1:1:nrt)}
+4356 [searcherExecutor-7-thread-1] INFO  org.apache.solr.core.SolrCore  – [core1] Registered new searcher Searcher@75686c9b[core1] main{StandardDirectoryReader(segments_1:1:nrt)}
+4356 [coreLoadExecutor-4-thread-1] INFO  org.apache.solr.core.CoreContainer  – registering core: core0
+4356 [coreLoadExecutor-4-thread-2] INFO  org.apache.solr.core.CoreContainer  – registering core: core1
+4375 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.search.SolrIndexSearcher  – Opening Searcher@23c59dfc[bdddatalineage] main
+4376 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.rest.ManagedResourceStorage  – File-based storage initialized to use dir: /Users/ankittharwani/Work/os/solr/data/bdddatalineage/conf
+4376 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.rest.RestManager  – Initializing RestManager with initArgs: {storageDir=/Users/ankittharwani/Work/os/solr/data/bdddatalineage/conf/}
+4376 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.rest.ManagedResourceStorage  – Reading _rest_managed.json using file:dir=/Users/ankittharwani/Work/os/solr/data/bdddatalineage/conf
+4376 [coreLoadExecutor-4-thread-3] WARN  org.apache.solr.rest.ManagedResource  – No stored data found for /rest/managed
+4377 [coreLoadExecutor-4-thread-3] WARN  org.apache.solr.rest.ManagedResource  – No registered observers for /rest/managed
+4377 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.rest.RestManager  – Initializing 0 registered ManagedResources
+4377 [searcherExecutor-5-thread-1] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] Registered new searcher Searcher@23c59dfc[bdddatalineage] main{StandardDirectoryReader(segments_2:7:nrt _1(4.8):C16)}
+4377 [coreLoadExecutor-4-thread-3] INFO  org.apache.solr.core.CoreContainer  – registering core: bdddatalineage
+4380 [main] INFO  org.apache.solr.servlet.SolrDispatchFilter  – user.dir=/usr/local/Cellar/solr/4.8.1/libexec/example
+4380 [main] INFO  org.apache.solr.servlet.SolrDispatchFilter  – SolrDispatchFilter.init() done
+4475 [main] INFO  org.eclipse.jetty.server.AbstractConnector  – Started SocketConnector@0.0.0.0:8983
+1642644 [qtp600746945-20] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery2140030912165995687246_1447894636432&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=101 
+1645001 [qtp600746945-20] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery2140030912165995687246_1447894636432&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=10 
+1645533 [qtp600746945-20] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery2140030912165995687246_1447894636432&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447894636433} hits=4 status=0 QTime=3 
+1705993 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery21409750990786124021_1447897394963&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=4 
+1707565 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*t*)&json.wrf=jQuery21409750990786124021_1447897394963&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=3 
+1708069 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tv*)&json.wrf=jQuery21409750990786124021_1447897394963&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=0 status=0 QTime=4 
+1709622 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery21409750990786124021_1447897394963&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447897394964} hits=4 status=0 QTime=1 
+1766802 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db1*)&json.wrf=jQuery21403741210112348199_1447897454787&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=14 status=0 QTime=6 
+1768801 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery21403741210112348199_1447897454787&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=6 
+1769526 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery21403741210112348199_1447897454787&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447897454788} hits=4 status=0 QTime=1 
+1801899 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_2)&json.wrf=jQuery21403741210112348199_1447897454787&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447897454789} hits=9 status=0 QTime=1 
+1827779 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery21403741210112348199_1447897454787&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447897454790} hits=4 status=0 QTime=1 
+2020740 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*tb*)&json.wrf=jQuery21406909011541865766_1447897709392&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=0 status=0 QTime=6 
+2021401 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*t*)&json.wrf=jQuery21406909011541865766_1447897709392&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=0 status=0 QTime=4 
+2021910 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery21406909011541865766_1447897709392&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=5 
+2023795 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery21406909011541865766_1447897709392&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=5 
+2025067 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery21406909011541865766_1447897709392&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447897709393} hits=4 status=0 QTime=2 
+2130384 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery214023229501745663583_1447897817639&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=4 
+2132179 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery214023229501745663583_1447897817639&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=4 
+2132908 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery214023229501745663583_1447897817639&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447897817640} hits=4 status=0 QTime=1 
+2172362 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_2)&json.wrf=jQuery214023229501745663583_1447897817639&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447897817641} hits=9 status=0 QTime=1 
+2236260 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery214006107526156120002_1447897924363&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=3 
+2238907 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery214006107526156120002_1447897924363&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=3 
+2239610 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_2)&json.wrf=jQuery214006107526156120002_1447897924363&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447897924364} hits=9 status=0 QTime=1 
+2700956 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*tb*)&json.wrf=jQuery2140712516296422109_1447898388414&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=0 status=0 QTime=3 
+2701427 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*t*)&json.wrf=jQuery2140712516296422109_1447898388414&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=0 status=0 QTime=3 
+2701936 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery2140712516296422109_1447898388414&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=3 
+2703634 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery2140712516296422109_1447898388414&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=5 
+2704426 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery2140712516296422109_1447898388414&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447898388415} hits=4 status=0 QTime=1 
+2738418 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery214035973520623520017_1447898427284&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=3 
+2740172 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tv*)&json.wrf=jQuery214035973520623520017_1447898427284&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=0 status=0 QTime=2 
+2740886 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery214035973520623520017_1447898427284&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=4 
+2741609 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery214035973520623520017_1447898427284&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447898427285} hits=4 status=0 QTime=2 
+2817645 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery21407399596525356174_1447898506530&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=3 
+2819401 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery21407399596525356174_1447898506530&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=3 
+2819974 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery21407399596525356174_1447898506530&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447898506531} hits=4 status=0 QTime=1 
+2856628 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*d*)&json.wrf=jQuery21407459530609194189_1447898545789&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=2 
+2856967 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery21407459530609194189_1447898545789&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=3 
+2858401 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*t*)&json.wrf=jQuery21407459530609194189_1447898545789&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=3 
+2858729 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery21407459530609194189_1447898545789&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=3 
+2859323 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery21407459530609194189_1447898545789&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447898545790} hits=4 status=0 QTime=1 
+2888914 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery21406071137187536806_1447898577587&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=3 
+2903854 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery2140814678763737902_1447898592871&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=3 
+2905377 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery2140814678763737902_1447898592871&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=2 
+2906264 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery2140814678763737902_1447898592871&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447898592872} hits=4 status=0 QTime=1 
+2917713 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery21402660119328647852_1447898606587&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=3 
+2918252 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db1*)&json.wrf=jQuery21402660119328647852_1447898606587&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=14 status=0 QTime=3 
+2920006 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery21402660119328647852_1447898606587&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=3 
+2920681 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_2)&json.wrf=jQuery21402660119328647852_1447898606587&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447898606588} hits=9 status=0 QTime=1 
+24875569 [qtp600746945-12] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db1*)&json.wrf=jQuery21403997591375373304_1447920563856&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=14 status=0 QTime=54 
+24877263 [qtp600746945-12] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery21403997591375373304_1447920563856&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=3 
+24877950 [qtp600746945-12] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_2)&json.wrf=jQuery21403997591375373304_1447920563856&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447920563857} hits=9 status=0 QTime=1 
+25904660 [qtp600746945-16] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db1*)&json.wrf=jQuery214048380827461369336_1447921592093&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=14 status=0 QTime=5 
+25906562 [qtp600746945-16] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery214048380827461369336_1447921592093&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=3 
+25907179 [qtp600746945-16] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery214048380827461369336_1447921592093&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447921592094} hits=4 status=0 QTime=1 
+29941252 [qtp600746945-11] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery21407569703850895166_1447925628949&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=5 
+29942908 [qtp600746945-11] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery21407569703850895166_1447925628949&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=3 
+29943305 [qtp600746945-11] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery21407569703850895166_1447925628949&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447925628950} hits=4 status=0 QTime=0 
+29947961 [qtp600746945-11] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_2)&json.wrf=jQuery21407569703850895166_1447925628949&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447925628951} hits=9 status=0 QTime=1 
+30317207 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tbl*)&json.wrf=jQuery21407569703850895166_1447925628949&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=3 
+30317973 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_3)&json.wrf=jQuery21407569703850895166_1447925628949&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447925628952} hits=1 status=0 QTime=1 
+30363954 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*tb1*)&json.wrf=jQuery21407246116583701223_1447926052424&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=0 status=0 QTime=3 
+30365415 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*t*)&json.wrf=jQuery21407246116583701223_1447926052424&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=0 status=0 QTime=1 
+30365872 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery21407246116583701223_1447926052424&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=3 
+30367551 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery21407246116583701223_1447926052424&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=3 
+30368449 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery21407246116583701223_1447926052424&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447926052425} hits=4 status=0 QTime=1 
+30372037 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_2)&json.wrf=jQuery21407246116583701223_1447926052424&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447926052426} hits=9 status=0 QTime=1 
+30377986 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_3)&json.wrf=jQuery21407246116583701223_1447926052424&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447926052427} hits=1 status=0 QTime=1 
+30382103 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb1*)&json.wrf=jQuery21407246116583701223_1447926052424&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=0 status=0 QTime=3 
+30384986 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery21407246116583701223_1447926052424&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447926052428} hits=4 status=0 QTime=2 
+30389354 [qtp600746945-15] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_2)&json.wrf=jQuery21407246116583701223_1447926052424&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447926052429} hits=9 status=0 QTime=1 
+30752134 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb;*)&json.wrf=jQuery21407246116583701223_1447926052424&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=0 status=0 QTime=4 
+30753013 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tbl*)&json.wrf=jQuery21407246116583701223_1447926052424&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=5 
+30754247 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery21407246116583701223_1447926052424&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447926052430} hits=4 status=0 QTime=1 
+30758069 [qtp600746945-19] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_2)&json.wrf=jQuery21407246116583701223_1447926052424&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447926052431} hits=9 status=0 QTime=1 
+35550632 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:*db*)&json.wrf=jQuery21406868981048464775_1447931234501&group.main=true&fl=tDb&wt=json&group.field=tDb&group=true} hits=16 status=0 QTime=21 
+35554266 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select/ params={q=(tDb:db1+AND+tTb:*tb*)&json.wrf=jQuery21406868981048464775_1447931234501&group.main=true&fl=tTb&wt=json&group.field=tTb&group=true} hits=14 status=0 QTime=4 
+35556980 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_2)&json.wrf=jQuery21406868981048464775_1447931234501&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447931234502} hits=9 status=0 QTime=1 
+35594226 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_1)&json.wrf=jQuery21406868981048464775_1447931234501&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447931234503} hits=4 status=0 QTime=2 
+35613770 [qtp600746945-13] INFO  org.apache.solr.core.SolrCore  – [bdddatalineage] webapp=/solr path=/select params={q=(tDb:db1+AND+tTb:tbl1_2)&json.wrf=jQuery21406868981048464775_1447931234501&sort=sDb+asc&sort=sTb+asc&rows=1000&wt=json&_=1447931234504} hits=9 status=0 QTime=4 
