@@ -1,0 +1,31 @@
+
+# Data Samples and usage
+# Slafka - Dec, 2015
+
+## STREAM KAFKA
+
+### Raw data excerpts:
+
+{ headers:{timestamp=1450129092.000002, channel_name=general, service_id=11858212135, team_domain=w205proj, user_name=ankittharwani, text=check!, token=GoPN0bCXibFLZE5C3yWO9KRW, user_id=U0BR77X8X, Content-Type=application/x-www-form-urlencoded, team_id=T0BRB4GSV, channel_id=C0BR76PDM} body: }
+
+{ headers:{timestamp=1450178423.000009, channel_name=general, service_id=11858212135, team_domain=w205proj, user_name=will.monge, token=GoPN0bCXibFLZE5C3yWO9KRW, user_id=U0BRB79M0, Content-Type=application/x-www-form-urlencoded, team_id=T0BRB4GSV, channel_id=C0BR76PDM} body: }
+
+{ headers:{timestamp=1450178456.000010, channel_name=general, service_id=11858212135, team_domain=w205proj, user_name=will.monge, token=GoPN0bCXibFLZE5C3yWO9KRW, user_id=U0BRB79M0, Content-Type=application/x-www-form-urlencoded, team_id=T0BRB4GSV, channel_id=C0BR76PDM} body: }
+
+{ headers:{timestamp=1450178517.000012, channel_name=general, service_id=11858212135, team_domain=w205proj, user_name=will.monge, token=GoPN0bCXibFLZE5C3yWO9KRW, user_id=U0BRB79M0, Content-Type=application/x-www-form-urlencoded, team_id=T0BRB4GSV, channel_id=C0BR76PDM} body: }
+
+{ headers:{timestamp=1450178523.000013, channel_name=general, service_id=11858212135, team_domain=w205proj, user_name=ankittharwani, text=check, token=GoPN0bCXibFLZE5C3yWO9KRW, user_id=U0BR77X8X, Content-Type=application/x-www-form-urlencoded, team_id=T0BRB4GSV, channel_id=C0BR76PDM} body: }
+
+### Loading Kafka Stream into python:
+
+{ "headers":{"timestamp":1450129092.000002, "channel_name":"general", "service_id":"11858212135", "team_domain":"w205proj", "user_name":"ankittharwani", "text":"check!", "token":"GoPN0bCXibFLZE5C3yWO9KRW", "user_id":"U0BR77X8X", "Content-Type":"application/x-www-form-urlencoded", "team_id":"T0BRB4GSV", "channel_id":"C0BR76PDM"} "body": }
+
+data = json.loads('{ "headers":{"timestamp":1450129092.000002, "channel_name":"general", "service_id":"11858212135", "team_domain":"w205proj", "user_name":"ankittharwani", "text":"check!", "token":"GoPN0bCXibFLZE5C3yWO9KRW", "user_id":"U0BR77X8X", "Content-Type":"application/x-www-form-urlencoded", "team_id":"T0BRB4GSV", "channel_id":"C0BR76PDM"}, "body":[] }')
+
+
+
+## HIVE
+
+### Table creation:
+
+CREATE TABLE slack_msgs(service_id long, team_domain string, team_id string, channel_id string, channel_name string, user_name string, text string, token string, user_id string, timestamp double)
