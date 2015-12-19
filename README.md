@@ -94,7 +94,7 @@ sudo /sbin/chkconfig --list mysqld
 ```
 
 ## Bugs and Issues
-Email: ankittharwani@gmail.com
+Email: ankittharwani@gmail.com, willie9monge@gmail.com
 
 ## Creator
 Annawilkit
