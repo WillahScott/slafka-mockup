@@ -91,13 +91,20 @@ timestamps = raw_msgs.flatMap( parse_timestamp )
 
 # Get activity counts (total and unique user)
    # using windows of 10 minutes, with 1 minute batches
-message_count = users.countByWindow(600,60)
-user_count = users.countByValueAndWindow(600,60)
+message_count = users.countByWindow(60,10) # 600, 60
+user_count = users.countByValueAndWindow(60,10)
 
+
+message_count.pprint()
+user_count.pprint()
 
 # Save into textfile CHANGE!
-message_count.saveAsTextFiles('file:///data/activity/msgs_')
-user_count.saveAsTextFiles('file:///data/activity/users_')
+# message_count.saveAsTextFiles('file:///data/activity/msgs_')
+# user_count.saveAsTextFiles('file:///data/activity/users_')
+
+
+# Update HBase KPI table
+# TODO
 
 
 # Initialize Stream
