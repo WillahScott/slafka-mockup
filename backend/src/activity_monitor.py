@@ -70,17 +70,17 @@ def parse_timestamp(data):
 
 ## STREAM ANALYSIS ------------------------------------------------------------
 
-# Connect to stream CHANGE!
+# Initialize stream
 sc = SparkContext("local[2]", "MyApp")
 ssc = StreamingContext(sc, 10)
 
-# Get stream of raw messages
+# Get stream of raw messages from Kafka
    # from github apache/spark :: kafka_wordcount.py
 zkQuorum, topic = sys.argvs[1:]
 raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {topic: 1})
 
 
-# Get stream of raw messages
+# Get stream of raw messages - from local
 # raw_msgs = ssc.socketTextStream("localhost", 9999)
 
 # From raw message stream, get user stream [ <user>, <user>, ... ]
@@ -96,8 +96,10 @@ message_count = users.countByWindow(60,10) # 600, 60
 user_count = users.countByValueAndWindow(60,10)
 
 
+# Debug
 message_count.pprint()
 user_count.pprint()
+
 
 # Save into textfile CHANGE!
 # message_count.saveAsTextFiles('file:///data/activity/msgs_')
@@ -105,7 +107,42 @@ user_count.pprint()
 
 
 # Update HBase KPI table
-# TODO
+host = ''
+table = 'slack_daily'
+
+
+# Read from HBase table
+conf = {"hbase.zookeeper.quorum": host,
+        "zookeeper.znode.parent": sys.argv[3],  # column_family ??
+        "hbase.mapreduce.inputtable": table}
+keyConv = "org.apache.spark.examples.pythonconverters.ImmutableBytesWritableToStringConverter"
+valueConv = "org.apache.spark.examples.pythonconverters.HBaseResultToStringConverter"
+
+hbase_rdd = sc.newAPIHadoopRDD(
+    "org.apache.hadoop.hbase.mapreduce.TableInputFormat",
+    "org.apache.hadoop.hbase.io.ImmutableBytesWritable",
+    "org.apache.hadoop.hbase.client.Result",
+    keyConverter=keyConv,
+    valueConverter=valueConv,
+    conf=conf)
+
+
+
+# Update the HBase table
+conf = {"hbase.zookeeper.quorum": host,
+        "hbase.mapred.outputtable": table,
+        "mapreduce.outputformat.class": "org.apache.hadoop.hbase.mapreduce.TableOutputFormat",
+        "mapreduce.job.output.key.class": "org.apache.hadoop.hbase.io.ImmutableBytesWritable",
+        "mapreduce.job.output.value.class": "org.apache.hadoop.io.Writable"
+        }
+keyConv = "org.apache.spark.examples.pythonconverters.StringToImmutableBytesWritableConverter"
+valueConv = "org.apache.spark.examples.pythonconverters.StringListToPutConverter"
+
+sc.parallelize([sys.argv[3:]]).map(lambda x: (x[0], x)).saveAsNewAPIHadoopDataset(
+               conf=conf,
+               keyConverter=keyConv,
+               valueConverter=valueConv
+               )
 
 
 # Initialize Stream
