@@ -50,7 +50,7 @@ def parse_user(data):
 	try:
 		r = parseJSON(data, get_user=True)
 	except:
-		r = parse_raw(data, get_user=True)
+		r = data
 	finally:
 		return r
 
@@ -62,7 +62,7 @@ def parse_timestamp(data):
 	try:
 		r = parseJSON(data, get_user=False)
 	except:
-		r = parse_raw(data, get_user=False)
+		r = data
 	finally:
 		return r
 
@@ -73,7 +73,7 @@ def parse_timestamp(data):
 # Initialize stream
 sc = SparkContext("local[2]", "MyApp")
 ssc = StreamingContext(sc, 1)
-ssc.checkpoint("file:///apps/slafka/slafka-mockup/backend/data/activity/checkpointing")
+ssc.checkpoint("file:///apps/slafka/slafka-mockup/backend/data/activity/checkpointingte")
 
 # Get stream of raw messages from Kafka
    # from github apache/spark :: kafka_wordcount.py
