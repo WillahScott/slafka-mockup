@@ -74,13 +74,14 @@ def parse_timestamp(data):
 sc = SparkContext("local[2]", "MyApp")
 ssc = StreamingContext(sc, 10)
 
-# from github apache/spark :: kafka_wordcount.py
-# zkQuorum, topic = sys.argvs[1:]
-# raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {topic: 1})
+# Get stream of raw messages
+   # from github apache/spark :: kafka_wordcount.py
+zkQuorum, topic = sys.argvs[1:]
+raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {topic: 1})
 
 
 # Get stream of raw messages
-raw_msgs = ssc.socketTextStream("localhost", 9999)
+# raw_msgs = ssc.socketTextStream("localhost", 9999)
 
 # From raw message stream, get user stream [ <user>, <user>, ... ]
 users = raw_msgs.flatMap( parse_user )
