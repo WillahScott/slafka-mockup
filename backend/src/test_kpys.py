@@ -76,7 +76,7 @@ ssc = StreamingContext(sc, 10)
 
 # Get stream of raw messages from Kafka
    # from github apache/spark :: kafka_wordcount.py
-zkQuorum, topic = sys.argvs[1:]
+zkQuorum, topic = sys.argv[1:]
 raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {topic: 1})
 
 
