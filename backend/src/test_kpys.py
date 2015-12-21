@@ -16,7 +16,6 @@ def parseJSON(js, get_user=True):
 	''' Parse JSON, outputs user (or user, timestamp)
 	'''
 	data = json.loads(js)
-	return 'JSON'
 	header = data['header']
 
 	if get_user:
@@ -51,7 +50,7 @@ def parse_user(data):
 	try:
 		r = parseJSON(data, get_user=True)
 	except:
-		r = 'DATA'
+		r = '1234567890'
 	finally:
 		return r
 
@@ -73,7 +72,7 @@ def parse_timestamp(data):
 
 # Initialize stream
 sc = SparkContext("local[2]", "MyApp")
-ssc = StreamingContext(sc, 1)
+ssc = StreamingContext(sc, 10)
 ssc.checkpoint("file:///apps/slafka/slafka-mockup/backend/data/activity/checkpointingte")
 
 # Get stream of raw messages from Kafka
