@@ -16,6 +16,7 @@ def parseJSON(js, get_user=True):
 	''' Parse JSON, outputs user (or user, timestamp)
 	'''
 	data = json.loads(js)
+	return 'JSON'
 	header = data['header']
 
 	if get_user:
@@ -50,7 +51,7 @@ def parse_user(data):
 	try:
 		r = parseJSON(data, get_user=True)
 	except:
-		r = data
+		r = 'DATA'
 	finally:
 		return r
 
@@ -82,25 +83,17 @@ topic = 'slafka'
 raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {topic: 1})
 
 
-# Get stream of raw messages - from local
-# raw_msgs = ssc.socketTextStream("localhost", 9999)
-
 # From raw message stream, get user stream [ <user>, <user>, ... ]
 users = raw_msgs.flatMap( parse_user )
-
-# From raw message stream, get timestamp stream [ <timestamp>, <timestamp>, ... ]
-timestamps = raw_msgs.flatMap( parse_timestamp )
 
 
 # Get activity counts (total and unique user)
    # using windows of 10 minutes, with 1 minute batches
-message_count = users.countByWindow(60,10) # 600, 60
-user_count = users.countByValueAndWindow(60,10)
+message_count = users.count() # 600, 60
 
 
 # Debug
 message_count.pprint()
-user_count.pprint()
 
 
 # Update HBase KPI table
