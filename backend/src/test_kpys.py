@@ -72,11 +72,12 @@ def parse_timestamp(data):
 
 # Initialize stream
 sc = SparkContext("local[2]", "MyApp")
-ssc = StreamingContext(sc, 10)
+ssc = StreamingContext(sc, 1)
 
 # Get stream of raw messages from Kafka
    # from github apache/spark :: kafka_wordcount.py
-zkQuorum, topic = sys.argv[1:]
+zkQuorum = 'localhost:2181'
+topic = 'slafka' 
 raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {topic: 1})
 
 
