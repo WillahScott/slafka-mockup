@@ -132,7 +132,7 @@ time_latest = _time_latest
 # _date = datetime.fromtimestamp(float(time_latest))
 # date_str = '-'.join(map(str, [_date.year, _date.month, _date.day]))
 # print "DATE", date_str
-date_str = _date
+date_str = time_latest
 print "--> DATE", date_str, type(date_str)
 
 
