@@ -74,7 +74,7 @@ def parse_timestamp(data):
 
 
 def parse_date(stmp):
-	''' From a timestamp returns the date with HBase row format
+	''' Convert timestamp into date with HBase row format
 	'''
 	print '--------------------------- PARSING DATES --------------------------------------'
 	_date = datetime.fromtimestamp(float(stmp))
@@ -138,15 +138,6 @@ final_stream.pprint()
 # message_count.pprint()
 # act_user_count.pprint()
 # time_latest.pprint()
-
-
-# # Convert timestamp into date
-# _date = datetime.fromtimestamp(float(time_latest))
-# date_str = '-'.join(map(str, [_date.year, _date.month, _date.day]))
-# print "DATE", date_str
-
-date_str = time_latest
-print "--> DATE", date_str, type(date_str)
 
 
 
