@@ -238,7 +238,7 @@ _message_count.pprint()
 hbase_updates = _message_count.flatMap( dummy_update_hbase )
 
 # Debug
-hbase_updates.pprint()
+# hbase_updates.pprint()
 
 
 # Initialize Stream
