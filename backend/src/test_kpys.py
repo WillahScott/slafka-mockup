@@ -47,10 +47,11 @@ def parse_user(data):
 	''' Tries to parse usernames with JSON formatting,
 		if not, does raw text formatting
 	'''
+	# Data incoming as second term of tuple
 	try:
-		r = parseJSON(data, get_user=True)
+		r = parseJSON(data[1], get_user=True)
 	except:
-		r = '1234567890'
+		r = parse_raw(data[1], get_user=True)
 	finally:
 		return r
 
@@ -59,16 +60,17 @@ def parse_timestamp(data):
 	''' Tries to parse timestamps with JSON formatting,
 		if not, does raw text formatting
 	'''
+	# Data incoming as second term of tuple
 	try:
-		r = parseJSON(data, get_user=False)
+		r = parseJSON(data[1], get_user=False)
 	except:
-		r = data
+		r = parse_raw(data[1], get_user=False)
 	finally:
 		return r
 
 
 def debug(data):
-	return "\n --- \n" + data + "\n --- \n"
+	return "\n --- \n" + data[1] + "\n --- \n"
 
 
 ## STREAM ANALYSIS ------------------------------------------------------------
@@ -86,7 +88,7 @@ raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {t
 
 
 # From raw message stream, get user stream [ <user>, <user>, ... ]
-# users = raw_msgs.flatMap( debug )
+users = raw_msgs.flatMap( debug )
 
 
 # Get activity counts (total and unique user)
@@ -95,9 +97,8 @@ raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {t
 
 
 # Debug
-# users.pprint()
+users.pprint()
 # message_count.pprint()
-raw_msgs.pprint()
 
 # Update HBase KPI table
 host = ''
