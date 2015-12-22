@@ -19,43 +19,6 @@ pattern = re.compile('[^a-zA-Z]+')
 
 ## FUNCTIONS ------------------------------------------------------------------
 
-def parseJSON(js):
-	''' Parse JSON, outputs text (or user, text)
-	'''
-	data = json.loads(js)
-	header = data['header']
-
-	# return {'username': header['username'], 'text': header['text']}
-	return header['text']
-
-
-def parse_raw(st):
-	''' Parse raw string, outputs text (or user, text)
-	'''
-	headers = st.split(', ')
-
-	# user_raw = [ d for d in headers if "user_name" in d]
-	# user = user_raw[0].split('=')[1]
-
-	text_raw = [ d for d in headers if "text=" in d]
-	text = text_raw[0].split('=')[1] if text_raw else ''
-
-	# return {'username': user, 'text': text}
-	return text
-
-
-def parse(data):
-	''' Tries to parse with JSON formatting,
-		if not, does raw text formatting
-	'''
-	try:
-		r = parseJSON(data)
-	except:
-		r = parse_raw(data)
-	finally:
-		return r
-
-
 def get_score(msg):
 	''' Scores a given message.
 	'''
@@ -106,6 +69,28 @@ def get_score_update(msg):
 	return score
 
 
+def process_message(raw_msg):
+	''' Parses raw messages and outputs:
+	        ( <timestamp>, ( <message>, <user_name>, <sentiment_score> ) )
+	'''
+	# Data incoming as second term of tuple
+	js = raw_msg[1]
+	data = json.loads(js)
+
+	# Parses base data
+	message = data['text']
+	user = data['user_name']
+	timestamp = data['timestamp']
+
+	# Get score for message
+	score = get_score(message)
+	# score = get_score_update(message)
+
+	# Return parsed message
+	return ( timestamp, ( message, user, score ) )
+
+
+
 def load_updated_corpus():
 	''' If exists, loads the updated corpus, else returns empyt dictionary
 	'''
@@ -128,8 +113,45 @@ def save_updated_corpus():
 	pk.dump( open('corpus/updated_corpus.pk', 'wb') )
 
 
+def write_hbase(data):
+	''' Updates the HBase table with given:
+	        data = ( <timestamp>, ( <message>, <user_name>, <sentiment_score> ) )
+	'''
 
-## INITIALIZATION -------------------------------------------------------------
+	# # Parse data
+	# date_str = data[0]
+	# message = data[1][0]
+	# user = data[1][1]
+	# score = data[1][2]
+	date_str = '1450713154.000028'
+	message = 'Hello World, this is sad Will! :cry:'
+	user = 'will.monge'
+	score = '-4'
+
+
+	# Write into the HBase table
+	row1 = ( date_str, [date_str, family, 'message', message_count] )
+	row2 = ( date_str, [date_str, family, 'user', act_user_count] )
+	row3 = ( date_str, [date_str, family, 'score', time_latest] )
+
+	print "===========> WRITING HBASE"
+	print "===> Values to write (I/III):", row1
+	print "===> Values to write (II/III):", row2
+	print "===> Values to write (IIII/III):", row3
+
+
+	sc.parallelize([ row1, row2, row3 ]).saveAsNewAPIHadoopDataset(
+	               keyConverter=keyConv_write,
+	               valueConverter=valueConv_write,
+	               conf=conf_write
+	               )
+
+	return True
+
+
+
+
+## SENTIMENT ANALYS INITIALIZATION --------------------------------------------
 
 # Read sentiment dictionary
 score_corpus = {} # initialize an empty dictionary	
@@ -149,6 +171,26 @@ atexit.register( save_updated_corpus )
 
 
 
+## HBASE CONFIGURATION --------------------------------------------------------
+
+# Global host-table configuration
+host = 'localhost:2181'
+table = 'slafka_daily'
+
+
+# Configuration for HBase write
+family = 'tsa'
+conf_write = {"hbase.zookeeper.quorum": host,
+              "hbase.mapred.outputtable": table,
+              "mapreduce.outputformat.class": "org.apache.hadoop.hbase.mapreduce.TableOutputFormat",
+              "mapreduce.job.output.key.class": "org.apache.hadoop.hbase.io.ImmutableBytesWritable",
+              "mapreduce.job.output.value.class": "org.apache.hadoop.io.Writable"
+              }
+keyConv_write = "org.apache.spark.examples.pythonconverters.StringToImmutableBytesWritableConverter"
+valueConv_write = "org.apache.spark.examples.pythonconverters.StringListToPutConverter"
+
+
+
 ## STREAM ANALYSIS ------------------------------------------------------------
 
 # Connect to stream CHANGE!
@@ -162,16 +204,11 @@ ssc = StreamingContext(sc, 10)
 
 # Parse stream, returns -> [ <message>, <message>, ... ]
 raw_msgs = ssc.socketTextStream("localhost", 9999)
-messages = raw_msgs.flatMap( parse )
+sc_messages = raw_msgs.flatMap( process_message )
 
-# Apply sentiment score
-scores = messages.flatMap( get_score )
-# scored_msgs = messages.flatMap( get_score_update )
 
-scored_msgs = messages.join(scores)
-
-# Save into textfile CHANGE!
-scored_msgs.saveAsTextFiles('file:///data/scored_messages/sc_msg_')
+# Update HBase with each entry
+hbase_updates = sc_messages.flatMap( write_hbase )
 
 
 # Initialize Stream
