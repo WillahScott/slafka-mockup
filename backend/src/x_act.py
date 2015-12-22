@@ -143,6 +143,9 @@ def update_hbase(data):
 
 
 
+def dummy_hbase(data):
+	return ('2015-12-16', ['2015-12-16', family, 'totalMsgs', '15'])
+
 # def get_users(data):
 # 	''' Parse JSON, outputs user (or user, timestamp)
 # 	'''
@@ -192,7 +195,6 @@ ssc = StreamingContext(sc, 15)
 ssc.checkpoint("file:///apps/new-slafka/slafka-mockup/backend/data/activity/checkpointing")
 
 # Get stream of raw messages from Kafka
-   # from github apache/spark :: kafka_wordcount.py
 zkQuorum = 'localhost:2181'
 topic = 'slafka' 
 raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {topic: 1})
@@ -218,8 +220,15 @@ final_stream = _time_latest.union(_counts)
 _message_count.pprint()
 
 
+hbase_insert = _message_count.map( dummy_hbase )
+
+hbase_insert.saveAsNewAPIHadoopDataset(keyConverter=keyConv_write,
+                                       valueConverter=valueConv_write,
+                                       conf=conf_write
+                                       )
+
 # Update HBase with each entry
-hbase_updates = _message_count.flatMap( update_hbase )
+# hbase_updates = _message_count.flatMap( update_hbase )
 
 
 
