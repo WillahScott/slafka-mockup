@@ -104,7 +104,7 @@ times = raw_msgs.map( parse_timestamp )
    # using windows of 10 minutes, with 1 minute batches
 message_count = users.count() # 600, 60
 act_user_count = users.countByValue()
-time_latest = times.reduceByWindow( max )
+time_latest = times.reduce( max )
 
 
 # Print for debug
