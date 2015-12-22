@@ -41,6 +41,11 @@ hbase_rdd = hbase_rdd.flatMapValues(lambda v: v.split("\n")).mapValues(json.load
 
 print 'ZZZZZZZZZZ -  Wassaaaaa'
 
+print hbase_rdd.count()
+
+print 'YYY UUU UUUU UUUUUUUUUUUZZ -  Wassaaaaa'
+
+
 output = hbase_rdd.collect()
 for (k, v) in output:
     print((k, v))
