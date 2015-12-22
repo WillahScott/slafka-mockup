@@ -222,7 +222,7 @@ _message_count.pprint()
 
 hbase_insert = _message_count.map( dummy_hbase )
 
-hbase_insert.saveAsNewAPIHadoopDataset(keyConverter=keyConv_write,
+sc.parallelize(hbase_insert).saveAsNewAPIHadoopDataset(keyConverter=keyConv_write,
                                        valueConverter=valueConv_write,
                                        conf=conf_write
                                        )
