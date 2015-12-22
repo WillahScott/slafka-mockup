@@ -79,8 +79,6 @@ def process_message(raw_msg):
 	js = raw_msg[1]
 	data = json.loads(js)
 
-	print "+++++++++++++++++++++++++++++++++++++++++ ZZZ"
-
 	# Parses base data
 	message = data['text']
 	user = data['user_name']
@@ -105,26 +103,16 @@ def write_hbase(data):
 	        data = ( <timestamp>, ( <message>, <user_name>, <sentiment_score> ) )
 	'''
 
-	# # Parse data
-	# date_str = data[0]
-	# message = data[1][0]
-	# user = data[1][1]
-	# score = data[1][2]
-	date_str = '1450713154.000028'
-	message = 'Hello World, this is sad Will! :cry:'
-	user = 'will.monge'
-	score = '-4'
+	# Parse data
+	date_str = data[0]
+	message = data[1][0]
+	user = data[1][1]
+	score = data[1][2]
 
 	# Write into the HBase table
 	row1 = ( date_str, [date_str, family, 'message', message_count] )
 	row2 = ( date_str, [date_str, family, 'user', act_user_count] )
 	row3 = ( date_str, [date_str, family, 'score', time_latest] )
-
-	print "===========> WRITING HBASE"
-	print "===> Values to write (I/III):", row1
-	print "===> Values to write (II/III):", row2
-	print "===> Values to write (IIII/III):", row3
-
 
 	sc.parallelize([ row1, row2, row3 ]).saveAsNewAPIHadoopDataset(
 	               keyConverter=keyConv_write,
@@ -136,12 +124,21 @@ def write_hbase(data):
 
 
 def REST_hbase(data):
+	''' Updates the HBase table (using REST API requests) with given:
+	        data = ( <timestamp>, ( <message>, <user_name>, <sentiment_score> ) )
+	'''
 	# Baseurl
-	url = "http://104.196.37.110:20550/slafka_daily/2015-12-19"
+	url = "http://104.196.37.110:20550/slafka_daily/"+data[0]
+
+	print "============== =======      =======   ", url
 
 	# Generate payload of request
 	keywords = {'key': data[0], 'msg': data[1][0], 'usr': data[1][1], 'sc': data[1][2]}
 	payload = template.format(**keywords)
+
+	print "============== =======      =======   ++++++++ "
+	print payload
+
 
 	headers = {
 	    'accept': "application/json",
