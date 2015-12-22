@@ -83,13 +83,14 @@ def parse_date(stmp):
 
 
 def update_hbase(data):
-	''' Updates the HBase table with given: data = ( <date>, ( <message_count>, <user_count> ) )
+	''' Updates the HBase table with given:
+	        data = ( <date>, ( <message_count>, <user_count> ) )
 	'''
 
 	# # Parse data
 	# date_str = data[0]
 	# message_count = data[1][0]
-	# act_user_count = data[1][0]
+	# act_user_count = data[1][1]
 	date_str = '2015-12-16'
 	message_count = '15'
 	act_user_count = '4'
@@ -209,28 +210,16 @@ _act_user_count = users.countByValue()
 _time_latest = times.reduce( max ).map( parse_date )
 
 
+# Merge into one Dstream
 _counts = _message_count.union(_act_user_count)
 final_stream = _time_latest.union(_counts)
 
 # Debug
 _message_count.pprint()
 
+
 # Update HBase with each entry
 hbase_updates = _message_count.flatMap( update_hbase )
-
-
-# Collect results
-# message_count = _message_count.collect()
-# act_user_count = _act_user_count.collect()
-# time_latest = _time_latest.collect()
-
-# print "MESSAGES:", message_count, "USERS:", act_user_count, "TIME:", time_latest
-
-
-# Print for debug
-# message_count.pprint()
-# act_user_count.pprint()
-# time_latest.pprint()
 
 
 
