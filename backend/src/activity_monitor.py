@@ -1,6 +1,9 @@
 ## PySpark - Activity Monitor
 ##    Slafka - Dec, 2015
 
+# USAGE:
+# spark-submit --driver-class-path /opt/cloudera/parcels/CDH-5.5.0-1.cdh5.5.0.p0.8/lib/spark/lib/spark-examples.jar activity_monitor.py
+
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 
@@ -9,6 +12,7 @@ from pyspark.streaming.kafka import KafkaUtils
 import sys
 import json
 from datetime import datetime
+
 
 
 ## FUNCTIONS ------------------------------------------------------------------
@@ -113,6 +117,7 @@ print "MESSAGES:", _message_count, "USERS:", _act_user_count, "TIME:", _time_lat
 # message_count = _message_count.collect()
 # act_user_count = _act_user_count.collect()
 # time_latest = _time_latest.collect()
+time_latest = _time_latest
 
 # print "MESSAGES:", message_count, "USERS:", act_user_count, "TIME:", time_latest
 
