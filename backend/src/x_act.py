@@ -229,13 +229,15 @@ _time_latest = times.reduce( max ).map( parse_date )
 _counts = _message_count.union(_act_user_count)
 final_stream = _time_latest.union(_counts)
 
+
 # Debug
 # final_stream.pprint()
+final_stream = final_stream.map( dummy_hbase )
 
 
 # Update HBase with each entry
 # hbase_updates = _message_count.flatMap( update_hbase )
-hbase_updates = _message_count.map( dummy_update_hbase )
+hbase_updates = final_stream.map( dummy_update_hbase )
 
 
 # Initialize Stream
