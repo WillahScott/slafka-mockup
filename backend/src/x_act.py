@@ -129,7 +129,7 @@ print 'YYYYYYYYY -------====================================-------'
 _counts = _message_count.union(_act_user_count)
 final_stream = _time_latest.union(_counts)
 
-final_stream.pprint()
+_message_count.pprint()
 
 
 # Collect results
