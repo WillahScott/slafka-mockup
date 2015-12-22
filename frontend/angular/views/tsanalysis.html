@@ -13,7 +13,7 @@
                         </div>
                         <div class="databox-row row-7">
                             <div class="databox-sparkline no-margin">
-                                <div style="height: 65px;" ui-jq="sparkline" ui-options="[18,12,20,26,22,20,10], {type:'bar', height:88, width:'100%', barColor:'#bfe19a', barWidth:20, barSpacing:10 }"></div>
+                                <div style="height: 65px;" ng-if="dailyMessages.length > 0" ui-jq="sparkline" ui-options="{{dailyMessages}}, {type:'bar', height:88, width:'100%', barColor:'#bfe19a', barWidth:20, barSpacing:10 }"></div>
                             </div>
                         </div>
                     </div>
@@ -56,13 +56,13 @@
                         </div>
                         <div class="col-lg-4 col-sm-4 col-xs-4 text-align-right">
                             <div class="databox-stat bg-palegreen radius-bordered">
-                                <div class="stat-text">16%</div>
-                                <i class="stat-icon fa fa-arrow-up"></i>
+                                <div class="stat-text">{{((totalUniqueUsersCurrentWeek - totalUniqueUsersPreviousWeek)/totalUniqueUsersPreviousWeek)*100 | number:0 }}%</div>
+                                <i class="stat-icon fa" ng-class="totalUniqueUsersCurrentWeek - totalUniqueUsersPreviousWeek > 0 ? 'fa-arrow-up' : 'fa-arrow-down'"></i>
                             </div>
                         </div>
                     </div>
                     <div class="databox-bottom">
-                        <div ui-jq="plot" ui-options="{{DataTransferChartData}}, {{DataTransferChartOptions}}" class="chart"></div>
+                        <div ui-jq="plot" ng-if="DataTransferChartData[0].data.length > 0" ui-options="{{DataTransferChartData}}, {{DataTransferChartOptions}}" class="chart"></div>
                     </div>
                 </div>
             </div>
