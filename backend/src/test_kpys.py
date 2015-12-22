@@ -76,7 +76,8 @@ def dbgJSN(js):
 	return data['user_name']
 
 def dbg2(d):
-	pass
+	data = json.loads(js[1])
+	return data['timestamp']
 
 
 ## STREAM ANALYSIS ------------------------------------------------------------
@@ -103,8 +104,11 @@ raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {t
 
 
 # Debug
-jsn = raw_msgs.flatMap( dbgJSN )
-jsn.pprint()
+users = raw_msgs.map( dbgJSN )
+times = raw_msgs.map( dbg2 )
+users.pprint()
+times.pprint()
+
 # data2 = jsn.flatMap(  )
 
 
