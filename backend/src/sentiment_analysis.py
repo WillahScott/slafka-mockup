@@ -97,7 +97,7 @@ def load_updated_corpus():
 	try:
 		f = open('corpus/updated_corpus.pk', 'rb')
 	
-	except IOError:
+	except:
 		updated_corpus = {}
 
 	else:
