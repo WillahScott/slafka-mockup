@@ -128,10 +128,12 @@ time_latest = _time_latest
 # time_latest.pprint()
 
 
-# Convert timestamp into date
-_date = datetime.fromtimestamp(float(time_latest))
-date_str = '-'.join(map(str, [_date.year, _date.month, _date.day]))
-print "DATE", date_str
+# # Convert timestamp into date
+# _date = datetime.fromtimestamp(float(time_latest))
+# date_str = '-'.join(map(str, [_date.year, _date.month, _date.day]))
+# print "DATE", date_str
+date_str = _date
+print "--> DATE", date_str, type(date_str)
 
 
 ## HBASE INTERACTION ----------------------------------------------------------
