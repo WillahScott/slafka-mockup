@@ -20,15 +20,11 @@ sc = SparkContext("local[2]", "MyApp")
 
 
 # Update HBase KPI table
-# host = 'localhost:2181'
-host = 'slafka.c.w205-willahscott.internal'
+host = 'localhost:2181'
 table = 'slafka_daily'
-port = '2181'
 
 
-conf = {"hbase.zookeeper.quorum": host, "hbase.zookeeper.property.clientPort": port, "hbase.mapreduce.inputtable": table}
-# conf = {"hbase.zookeeper.quorum": host, "hbase.mapreduce.inputtable": table}
-
+conf = {"hbase.zookeeper.quorum": host, "hbase.mapreduce.inputtable": table}
 keyConv = "org.apache.spark.examples.pythonconverters.ImmutableBytesWritableToStringConverter"
 valueConv = "org.apache.spark.examples.pythonconverters.HBaseResultToStringConverter"
 
@@ -46,7 +42,6 @@ hbase_rdd = hbase_rdd.flatMapValues(lambda v: v.split("\n")).mapValues(json.load
 output = hbase_rdd.collect()
 
 for (k, v) in output:
-	if k == date:
-	    print((k, v))
+    print((k, v))
 
 

@@ -26,22 +26,6 @@ q1 = 'uniqueUsers'
 q2 = 'totalMsgs'
 q3 = 'totalSentiment'
 
-# # Read from HBase table
-# conf = {"hbase.zookeeper.quorum": host,
-#         "zookeeper.znode.parent": sys.argv[3],  # column_family ??
-#         "hbase.mapreduce.inputtable": table}
-# keyConv = "org.apache.spark.examples.pythonconverters.ImmutableBytesWritableToStringConverter"
-# valueConv = "org.apache.spark.examples.pythonconverters.HBaseResultToStringConverter"
-
-# hbase_rdd = sc.newAPIHadoopRDD(
-#     "org.apache.hadoop.hbase.mapreduce.TableInputFormat",
-#     "org.apache.hadoop.hbase.io.ImmutableBytesWritable",
-#     "org.apache.hadoop.hbase.client.Result",
-#     keyConverter=keyConv,
-#     valueConverter=valueConv,
-#     conf=conf)
-
-
 
 # Update the HBase table
 conf = {"hbase.zookeeper.quorum": host,
