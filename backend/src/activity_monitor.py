@@ -126,7 +126,7 @@ print "MESSAGES:", _message_count, "USERS:", _act_user_count, "TIME:", _time_lat
 # Convert timestamp into date
 _date = datetime.fromtimestamp(float(time_latest))
 date_str = '-'.join(map(str, [_date.year, _date.month, _date.day]))
-
+print "DATE", date_str
 
 
 ## HBASE INTERACTION ----------------------------------------------------------
