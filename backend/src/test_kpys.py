@@ -69,9 +69,6 @@ def parse_timestamp(data):
 		return r
 
 
-def debug(data):
-	return "\n --- \n" + data[1] + "\n --- \n"
-
 
 ## STREAM ANALYSIS ------------------------------------------------------------
 
@@ -88,7 +85,7 @@ raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {t
 
 
 # From raw message stream, get user stream [ <user>, <user>, ... ]
-users = raw_msgs.flatMap( debug )
+users = raw_msgs.flatMap( parse_user )
 
 
 # Get activity counts (total and unique user)
