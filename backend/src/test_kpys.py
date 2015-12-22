@@ -16,22 +16,21 @@ def parseJSON(js, get_user=True):
 	''' Parse JSON, outputs user (or user, timestamp)
 	'''
 	data = json.loads(js)
-	header = data['header']
 
 	if get_user:
-		return header['username']
+		return data['username']
 
 	else:
-		return float(header['timestamp']) 
+		return float(data['timestamp']) 
 
 
 def parse_raw(st, get_user=True):
 	''' Parse raw string, outputs user (or user, timestamp)
 	'''
-	headers = st.split(', ')
+	data = st.split('\",\"')
 
 	if get_user:
-		user_raw = [ d for d in headers if "user_name" in d]
+		user_raw = [ d for d in data if "user_name" in d]
 		user = user_raw[0].split('=')[1]
 
 		return user
@@ -95,30 +94,23 @@ raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {t
 
 
 # From raw message stream, get user stream [ <user>, <user>, ... ]
-# users = raw_msgs.flatMap( parse_user )
+users = raw_msgs.map( parse_user )
+times = raw_msgs.map( parse_timestamp )
 
 
 # Get activity counts (total and unique user)
    # using windows of 10 minutes, with 1 minute batches
-# message_count = users.count() # 600, 60
-
-
-# Debug
-users = raw_msgs.map( get_users )
-times = raw_msgs.map( get_timestamps )
-
 message_count = users.count() # 600, 60
 act_user_count = users.countByValue()
+time_latest = times.reduce( max )
 
 
+# Print for debug
 message_count.pprint()
 act_user_count.pprint()
+time_latest.pprint()
 
-# data2 = jsn.flatMap(  )
 
-
-# users.pprint()
-# message_count.pprint()
 
 # Update HBase KPI table
 host = ''
