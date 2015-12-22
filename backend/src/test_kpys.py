@@ -68,25 +68,16 @@ def parse_timestamp(data):
 		return r
 
 
-def get_users(data):
-	''' Parse JSON, outputs user (or user, timestamp)
-	'''
-	data = json.loads(data[1])
-	return data['user_name']
+# def get_users(data):
+# 	''' Parse JSON, outputs user (or user, timestamp)
+# 	'''
+# 	data = json.loads(data[1])
+# 	return data['user_name']
 
-def get_timestamps(data):
-	data = json.loads(data[1])
-	return data['timestamp']
+# def get_timestamps(data):
+# 	data = json.loads(data[1])
+# 	return data['timestamp']
 
-
-def print_msg(stream):
-	return "Count Messages: " + " ".join(stream) 
-
-def print_user(stream):
-	return "Count Active Users: " + " ".join(stream) 
-
-def print_time(stream):
-	return "Timestamp: " + " ".join(stream) 
 
 
 ## STREAM ANALYSIS ------------------------------------------------------------
@@ -110,15 +101,15 @@ times = raw_msgs.map( parse_timestamp )
 
 # Get activity counts (total and unique user)
    # using windows of 10 minutes, with 1 minute batches
-message_count = users.count() # 600, 60
-act_user_count = users.countByValue()
-time_latest = times.reduce( max )
+message_count = users.countByWindow(10, 5) # 600, 60
+act_user_count = users.countByValueAndWindow(10, 5)
+time_latest = times.reduceByWindow( max )
 
 
 # Print for debug
-message_count.reduce(print_msg).pprint()
-act_user_count.reduce(print_user).pprint()
-time_latest.reduce(print_time).pprint()
+message_count.pprint()
+act_user_count.pprint()
+time_latest.pprint()
 
 
 
