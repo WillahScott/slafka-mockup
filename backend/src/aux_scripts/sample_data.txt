@@ -38,6 +38,11 @@ put 'slafka_daily', '2015-12-20', 'tsa:totalMsgs', 22
 put 'slafka_daily', '2015-12-20', 'tsa:totalSentiment', 16
 
 
+create 'scored_messages', 'sa'
+put 'scored_messages', '1450743154.000028', 'sa:message', 'Hello World, this is happy Will! :simple_smile:'
+put 'scored_messages', '1450743154.000028', 'sa:user', 'will.monge'
+put 'scored_messages', '1450743154.000028', 'sa:score', '5'
+
 
 ## PySpark read from HBase:
 
