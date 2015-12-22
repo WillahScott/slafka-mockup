@@ -206,6 +206,9 @@ ssc = StreamingContext(sc, 10)
 raw_msgs = ssc.socketTextStream("localhost", 9999)
 sc_messages = raw_msgs.flatMap( process_message )
 
+# Debug
+sc_messages.pprint()
+
 
 # Update HBase with each entry
 hbase_updates = sc_messages.flatMap( write_hbase )
