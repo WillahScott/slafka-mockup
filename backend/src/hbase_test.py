@@ -20,7 +20,7 @@ sc = SparkContext("local[2]", "MyApp")
 host = 'localhost'
 table = 'slack_daily'
 
-row = '2015-12-21'
+row = '2015-12-17'
 family = 'tsa'
 q1 = 'uniqueUsers' 
 q2 = 'totalMsgs'
@@ -54,8 +54,8 @@ keyConv = "org.apache.spark.examples.pythonconverters.StringToImmutableBytesWrit
 valueConv = "org.apache.spark.examples.pythonconverters.StringListToPutConverter"
 
 
-row1 = (row, [row, family, q1, 3])
-row2 = (row, [row, family, q2, 10])
+row1 = (row, [row, family, q1, '33'])
+row2 = (row, [row, family, q2, '111'])
 
 sc.parallelize([ row1, row2 ]).saveAsNewAPIHadoopDataset(
                conf=conf,

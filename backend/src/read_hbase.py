@@ -1,6 +1,9 @@
 ## PySpark - Activity Monitor
 ##    Slafka - Dec, 2015
 
+# USAGE:
+# spark-submit --driver-class-path /opt/cloudera/parcels/CDH-5.5.0-1.cdh5.5.0.p0.8/lib/spark/lib/spark-examples.jar read_hbase.py
+
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 
@@ -40,15 +43,10 @@ hbase_rdd = sc.newAPIHadoopRDD(
 hbase_rdd = hbase_rdd.flatMapValues(lambda v: v.split("\n")).mapValues(json.loads)
 
 
-print 'ZZZZZZZZZZ -  Wassaaaaa'
-
-print hbase_rdd.count()
-
-print 'YYY UUU UUUU UUUUUUUUUUUZZ -  Wassaaaaa'
-
-
 output = hbase_rdd.collect()
+
 for (k, v) in output:
-    print((k, v))
+	if k == date:
+	    print((k, v))
 
 
