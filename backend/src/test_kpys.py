@@ -18,7 +18,7 @@ def parseJSON(js, get_user=True):
 	data = json.loads(js)
 
 	if get_user:
-		return data['username']
+		return data['user_name']
 
 	else:
 		return float(data['timestamp']) 
