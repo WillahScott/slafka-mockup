@@ -2,7 +2,7 @@
 
 app.controller('DataboxesCtrl', [
     '$rootScope', '$scope', '$http', function($rootScope, $scope, $http) {
-        $http.get('http://localhost/slafka/slafka-mockup/frontend/service.php')
+        $http.get('service.php')
         .success(function(data) {
             console.log(data);
             $scope.slafkaDaily = data;
