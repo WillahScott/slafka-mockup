@@ -77,6 +77,8 @@ def process_message(raw_msg):
 	js = raw_msg[1]
 	data = json.loads(js)
 
+	print "+++++++++++++++++++++++++++++++++++++++++ ZZZ"
+
 	# Parses base data
 	message = data['text']
 	user = data['user_name']
