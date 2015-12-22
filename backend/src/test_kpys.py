@@ -69,6 +69,15 @@ def parse_timestamp(data):
 		return r
 
 
+def dbgJSN(js):
+	''' Parse JSON, outputs user (or user, timestamp)
+	'''
+	data = json.loads(js[1])
+	return data
+
+def dbg2(d):
+	pass
+
 
 ## STREAM ANALYSIS ------------------------------------------------------------
 
@@ -85,7 +94,7 @@ raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {t
 
 
 # From raw message stream, get user stream [ <user>, <user>, ... ]
-users = raw_msgs.flatMap( parse_user )
+# users = raw_msgs.flatMap( parse_user )
 
 
 # Get activity counts (total and unique user)
@@ -94,7 +103,12 @@ users = raw_msgs.flatMap( parse_user )
 
 
 # Debug
-users.pprint()
+jsn = raw_msgs.flatMap( dbgJSN )
+jsn.pprint()
+# data2 = jsn.flatMap(  )
+
+
+# users.pprint()
 # message_count.pprint()
 
 # Update HBase KPI table
