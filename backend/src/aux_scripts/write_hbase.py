@@ -64,7 +64,3 @@ sc.parallelize([ row1, row2 ]).saveAsNewAPIHadoopDataset(
                )
 
 
-# Initialize Stream
-ssc.start()
-ssc.awaitTermination()
-

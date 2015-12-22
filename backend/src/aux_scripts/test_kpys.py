@@ -113,44 +113,6 @@ time_latest.pprint()
 
 
 
-# Update HBase KPI table
-host = ''
-table = 'slack_daily'
-
-
-# # Read from HBase table
-# conf = {"hbase.zookeeper.quorum": host,
-#         "zookeeper.znode.parent": sys.argv[3],  # column_family ??
-#         "hbase.mapreduce.inputtable": table}
-# keyConv = "org.apache.spark.examples.pythonconverters.ImmutableBytesWritableToStringConverter"
-# valueConv = "org.apache.spark.examples.pythonconverters.HBaseResultToStringConverter"
-
-# hbase_rdd = sc.newAPIHadoopRDD(
-#     "org.apache.hadoop.hbase.mapreduce.TableInputFormat",
-#     "org.apache.hadoop.hbase.io.ImmutableBytesWritable",
-#     "org.apache.hadoop.hbase.client.Result",
-#     keyConverter=keyConv,
-#     valueConverter=valueConv,
-#     conf=conf)
-
-
-
-# # Update the HBase table
-# conf = {"hbase.zookeeper.quorum": host,
-#         "hbase.mapred.outputtable": table,
-#         "mapreduce.outputformat.class": "org.apache.hadoop.hbase.mapreduce.TableOutputFormat",
-#         "mapreduce.job.output.key.class": "org.apache.hadoop.hbase.io.ImmutableBytesWritable",
-#         "mapreduce.job.output.value.class": "org.apache.hadoop.io.Writable"
-#         }
-# keyConv = "org.apache.spark.examples.pythonconverters.StringToImmutableBytesWritableConverter"
-# valueConv = "org.apache.spark.examples.pythonconverters.StringListToPutConverter"
-
-# sc.parallelize([sys.argv[3:]]).map(lambda x: (x[0], x)).saveAsNewAPIHadoopDataset(
-#                conf=conf,
-#                keyConverter=keyConv,
-#                valueConverter=valueConv
-#                )
-
 
 # Initialize Stream
 ssc.start()
