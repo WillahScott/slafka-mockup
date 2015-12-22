@@ -39,6 +39,13 @@ put 'slafka_daily', '2015-12-20', 'tsa:totalSentiment', 16
 
 
 
+## PySpark read from HBase:
+
+(u'2015-12-18', {u'qualifier': u'latestTimestamp', u'timestamp': u'1450754914707', u'value': u'2015-12-18T22:35:30:123Z', u'columnFamily': u'tsa', u'type': u'Put', u'row': u'2015-12-18'})
+
+
+
+
 ## HIVE
 
 ### Table creation:

@@ -8,6 +8,7 @@ from pyspark.streaming.kafka import KafkaUtils
 
 import sys
 import json
+from datetime import datetime
 
 
 ## FUNCTIONS ------------------------------------------------------------------
@@ -101,22 +102,88 @@ times = raw_msgs.map( parse_timestamp )
 
 # Get activity counts (total and unique user)
    # using windows of 10 minutes, with 1 minute batches
-message_count = users.countByWindow(20, 10) # 600, 60
-act_user_count = users.countByValueAndWindow(20, 10)
-time_latest = times.reduceByWindow( max, lambda x: 0, 20, 10 )
+message_count = users.count() # 600, 60
+act_user_count = users.countByValue()
+time_latest = times.reduceByWindow( max )
 
 
 # Print for debug
-message_count.pprint()
-act_user_count.pprint()
-time_latest.pprint()
+# message_count.pprint()
+# act_user_count.pprint()
+# time_latest.pprint()
+
+
+# Convert timestamp into date
+_date = datetime.fromtimestamp(float(time_latest))
+date_str = '-'.join(map(str, [_date.year, _date.month, _date.day]))
 
 
 
 ## HBASE INTERACTION ----------------------------------------------------------
 
+# Global host-table configuration
+host = 'localhost:2181'
+table = 'slafka_daily'
 
 
+# Configuration for HBase read
+conf_read = {"hbase.zookeeper.quorum": host, "hbase.mapreduce.inputtable": table}
+keyConv_read = "org.apache.spark.examples.pythonconverters.ImmutableBytesWritableToStringConverter"
+valueConv_read = "org.apache.spark.examples.pythonconverters.HBaseResultToStringConverter"
+
+
+# Read actual table
+hbase_rdd = sc.newAPIHadoopRDD(
+    "org.apache.hadoop.hbase.mapreduce.TableInputFormat",
+    "org.apache.hadoop.hbase.io.ImmutableBytesWritable",
+    "org.apache.hadoop.hbase.client.Result",
+    keyConverter=keyConv_read,
+    valueConverter=valueConv_read,
+    conf=conf_read)
+hbase_rdd = hbase_rdd.flatMapValues(lambda v: v.split("\n")).mapValues(json.loads)
+output = hbase_rdd.collect()
+
+
+# Record values of row corresponding to date
+update_values = {}
+for (d, v) in output:
+	if d == date_str:
+		update_values[v['qualifier']] = v['value']
+
+# If necessary update values
+if len(update_values) > 0:
+	message_count = str( int(update_values['totalMsgs']) + int(message_count) )
+	act_user_count = str( int(update_values['uniqueUsers']) + int(act_user_count) )
+
+
+# Write into table
+family = 'tsa'
+q1 = 'uniqueUsers' 
+q2 = 'totalMsgs'
+q3 = 'totalSentiment'
+
+
+# Configuration for HBase write
+conf_write = {"hbase.zookeeper.quorum": host,
+              "hbase.mapred.outputtable": table,
+              "mapreduce.outputformat.class": "org.apache.hadoop.hbase.mapreduce.TableOutputFormat",
+              "mapreduce.job.output.key.class": "org.apache.hadoop.hbase.io.ImmutableBytesWritable",
+              "mapreduce.job.output.value.class": "org.apache.hadoop.io.Writable"
+              }
+keyConv_write = "org.apache.spark.examples.pythonconverters.StringToImmutableBytesWritableConverter"
+valueConv_write = "org.apache.spark.examples.pythonconverters.StringListToPutConverter"
+
+
+# Update the HBase table
+row1 = ( date_str, [date_str, family, 'totalMsgs', message_count] )
+row2 = ( date_str, [date_str, family, 'uniqueUsers', act_user_count] )
+row3 = ( date_str, [date_str, family, 'latestTimestamp', time_latest] )
+
+sc.parallelize([ row1, row2, row3 ]).saveAsNewAPIHadoopDataset(
+               keyConverter=keyConv_write,
+               valueConverter=valueConv_write,
+               conf=conf_write
+               )
 
 
 
