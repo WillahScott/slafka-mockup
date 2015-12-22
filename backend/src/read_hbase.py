@@ -37,6 +37,9 @@ hbase_rdd = sc.newAPIHadoopRDD(
 
 hbase_rdd = hbase_rdd.flatMapValues(lambda v: v.split("\n")).mapValues(json.loads)
 
+
+print 'ZZZZZZZZZZ -  Wassaaaaa'
+
 output = hbase_rdd.collect()
 for (k, v) in output:
     print((k, v))
