@@ -85,7 +85,7 @@ def parse_timestamp(data):
 # Initialize stream
 sc = SparkContext("local[2]", "MyApp")
 ssc = StreamingContext(sc, 10)
-ssc.checkpoint("file:///apps/slafka/slafka-mockup/backend/data/activity/checkpointingte")
+ssc.checkpoint("file:///apps/new-slafka/slafka-mockup/backend/data/activity/checkpointing")
 
 # Get stream of raw messages from Kafka
    # from github apache/spark :: kafka_wordcount.py

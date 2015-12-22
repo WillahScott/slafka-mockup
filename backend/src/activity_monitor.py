@@ -1,6 +1,9 @@
 ## PySpark - Activity Monitor
 ##    Slafka - Dec, 2015
 
+# USAGE:
+# spark-submit --driver-class-path /opt/cloudera/parcels/CDH-5.5.0-1.cdh5.5.0.p0.8/lib/spark/lib/spark-examples.jar activity_monitor.py
+
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 
@@ -9,6 +12,7 @@ from pyspark.streaming.kafka import KafkaUtils
 import sys
 import json
 from datetime import datetime
+
 
 
 ## FUNCTIONS ------------------------------------------------------------------
@@ -86,7 +90,7 @@ def parse_timestamp(data):
 # Initialize stream
 sc = SparkContext("local[2]", "MyApp")
 ssc = StreamingContext(sc, 10)
-ssc.checkpoint("file:///apps/slafka/slafka-mockup/backend/data/activity/checkpointingte")
+ssc.checkpoint("file:///apps/new-slafka/slafka-mockup/backend/data/activity/checkpointing")
 
 # Get stream of raw messages from Kafka
    # from github apache/spark :: kafka_wordcount.py
@@ -113,6 +117,7 @@ print "MESSAGES:", _message_count, "USERS:", _act_user_count, "TIME:", _time_lat
 # message_count = _message_count.collect()
 # act_user_count = _act_user_count.collect()
 # time_latest = _time_latest.collect()
+time_latest = _time_latest
 
 # print "MESSAGES:", message_count, "USERS:", act_user_count, "TIME:", time_latest
 
@@ -123,10 +128,12 @@ print "MESSAGES:", _message_count, "USERS:", _act_user_count, "TIME:", _time_lat
 # time_latest.pprint()
 
 
-# Convert timestamp into date
-_date = datetime.fromtimestamp(float(time_latest))
-date_str = '-'.join(map(str, [_date.year, _date.month, _date.day]))
-print "DATE", date_str
+# # Convert timestamp into date
+# _date = datetime.fromtimestamp(float(time_latest))
+# date_str = '-'.join(map(str, [_date.year, _date.month, _date.day]))
+# print "DATE", date_str
+date_str = time_latest
+print "--> DATE", date_str, type(date_str)
 
 
 ## HBASE INTERACTION ----------------------------------------------------------
@@ -160,10 +167,16 @@ for (d, v) in output:
 	if d == date_str:
 		update_values[v['qualifier']] = v['value']
 
+print "===========> READING HBASE"
+
+print "===> Values Read:", update_values
+
+message_count, act_user_count = '15', '4'
+
 # If necessary update values
-if len(update_values) > 0:
-	message_count = str( int(update_values['totalMsgs']) + int(message_count) )
-	act_user_count = str( int(update_values['uniqueUsers']) + int(act_user_count) )
+# if len(update_values) > 0:
+# 	message_count = str( int(update_values['totalMsgs']) + int(message_count) )
+# 	act_user_count = str( int(update_values['uniqueUsers']) + int(act_user_count) )
 
 
 # Write into table
@@ -188,6 +201,14 @@ valueConv_write = "org.apache.spark.examples.pythonconverters.StringListToPutCon
 row1 = ( date_str, [date_str, family, 'totalMsgs', message_count] )
 row2 = ( date_str, [date_str, family, 'uniqueUsers', act_user_count] )
 row3 = ( date_str, [date_str, family, 'latestTimestamp', time_latest] )
+
+
+print "===========> WRITING HBASE"
+
+print "===> Values to write (I/III):", row1
+print "===> Values to write (II/III):", row2
+print "===> Values to write (IIII/III):", row3
+
 
 sc.parallelize([ row1, row2, row3 ]).saveAsNewAPIHadoopDataset(
                keyConverter=keyConv_write,

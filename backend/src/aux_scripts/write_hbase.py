@@ -1,6 +1,9 @@
 ## PySpark - Activity Monitor
 ##    Slafka - Dec, 2015
 
+# USAGE:
+# spark-submit --driver-class-path /opt/cloudera/parcels/CDH-5.5.0-1.cdh5.5.0.p0.8/lib/spark/lib/spark-examples.jar write_hbase.py
+
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 

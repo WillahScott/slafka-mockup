@@ -2544,6 +2544,6 @@ zealous	2
 :clap:	2
 :thumbsup:	2
 :thumbsdown:	-2
-:heavy_check_mark: 2
+:heavy_check_mark:	2
 :top:	2
 :simple_smile:	2
