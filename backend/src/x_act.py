@@ -146,6 +146,19 @@ def update_hbase(data):
 def dummy_hbase(data):
 	return ('2015-12-16', ['2015-12-16', family, 'totalMsgs', '15'])
 
+
+def dummy_update_hbase(data):
+    row1 = ('2015-12-16', ['2015-12-16', family, 'totalMsgs', '15'])
+    row1 = ('2015-12-16', ['2015-12-16', family, 'uniqueUsers', '2'])
+
+    sc.parallelize([ row1, row2 ]).saveAsNewAPIHadoopDataset(
+                   keyConverter=keyConv_write,
+                   valueConverter=valueConv_write,
+                   conf=conf_write
+                   )
+    return True
+
+
 # def get_users(data):
 # 	''' Parse JSON, outputs user (or user, timestamp)
 # 	'''
@@ -220,15 +233,9 @@ final_stream = _time_latest.union(_counts)
 _message_count.pprint()
 
 
-hbase_insert = _message_count.map( dummy_hbase )
-
-sc.parallelize(hbase_insert).saveAsNewAPIHadoopDataset(keyConverter=keyConv_write,
-                                       valueConverter=valueConv_write,
-                                       conf=conf_write
-                                       )
-
 # Update HBase with each entry
 # hbase_updates = _message_count.flatMap( update_hbase )
+hbase_updates = _message_count.flatMap( dummy_update_hbase )
 
 
 
