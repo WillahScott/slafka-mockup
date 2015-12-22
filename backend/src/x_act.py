@@ -156,7 +156,7 @@ def dummy_update_hbase(data):
                    valueConverter=valueConv_write,
                    conf=conf_write
                    )
-    return True
+    return "Yoooo"
 
 
 # def get_users(data):
@@ -235,10 +235,10 @@ _message_count.pprint()
 
 # Update HBase with each entry
 # hbase_updates = _message_count.flatMap( update_hbase )
-hbase_updates = _message_count.flatMap( dummy_update_hbase )
+hbase_updates = _message_count.map( dummy_update_hbase )
 
 # Debug
-# hbase_updates.pprint()
+hbase_updates.pprint()
 
 
 # Initialize Stream
