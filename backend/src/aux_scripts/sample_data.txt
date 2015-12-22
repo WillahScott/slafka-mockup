@@ -6,6 +6,13 @@
 
 ### Raw data excerpts:
 
+(None, u'{"timestamp":"1450743154.000028","channel_name":"general","service_id":"11858212135","team_domain":"w205proj","user_name":"will.monge","text":"pretty please?","token":"GoPN0bCXibFLZE5C3yWO9KRW","user_id":"U0BRB79M0","Content-Type":"application/x-www-form-urlencoded","team_id":"T0BRB4GSV","channel_id":"C0BR76PDM"}')
+(None, u'{"timestamp":"1450743157.000029","channel_name":"general","service_id":"11858212135","team_domain":"w205proj","user_name":"will.monge","text":"cmoooon","token":"GoPN0bCXibFLZE5C3yWO9KRW","user_id":"U0BRB79M0","Content-Type":"application/x-www-form-urlencoded","team_id":"T0BRB4GSV","channel_id":"C0BR76PDM"}')
+
+(None, u'{"timestamp":"1450743164.000030","channel_name":"general","service_id":"11858212135","team_domain":"w205proj","user_name":"will.monge","text":"thanks!","token":"GoPN0bCXibFLZE5C3yWO9KRW","user_id":"U0BRB79M0","Content-Type":"application/x-www-form-urlencoded","team_id":"T0BRB4GSV","channel_id":"C0BR76PDM"}')
+
+
+
 { headers:{timestamp=1450129092.000002, channel_name=general, service_id=11858212135, team_domain=w205proj, user_name=ankittharwani, text=check!, token=GoPN0bCXibFLZE5C3yWO9KRW, user_id=U0BR77X8X, Content-Type=application/x-www-form-urlencoded, team_id=T0BRB4GSV, channel_id=C0BR76PDM} body: }
 
 { headers:{timestamp=1450178423.000009, channel_name=general, service_id=11858212135, team_domain=w205proj, user_name=will.monge, token=GoPN0bCXibFLZE5C3yWO9KRW, user_id=U0BRB79M0, Content-Type=application/x-www-form-urlencoded, team_id=T0BRB4GSV, channel_id=C0BR76PDM} body: }
@@ -21,6 +28,21 @@
 { "headers":{"timestamp":1450129092.000002, "channel_name":"general", "service_id":"11858212135", "team_domain":"w205proj", "user_name":"ankittharwani", "text":"check!", "token":"GoPN0bCXibFLZE5C3yWO9KRW", "user_id":"U0BR77X8X", "Content-Type":"application/x-www-form-urlencoded", "team_id":"T0BRB4GSV", "channel_id":"C0BR76PDM"} "body": }
 
 data = json.loads('{ "headers":{"timestamp":1450129092.000002, "channel_name":"general", "service_id":"11858212135", "team_domain":"w205proj", "user_name":"ankittharwani", "text":"check!", "token":"GoPN0bCXibFLZE5C3yWO9KRW", "user_id":"U0BR77X8X", "Content-Type":"application/x-www-form-urlencoded", "team_id":"T0BRB4GSV", "channel_id":"C0BR76PDM"}, "body":[] }')
+
+
+
+## HBASE Table:
+
+put 'slafka_daily', '2015-12-20', 'tsa:uniqueUsers', 5
+put 'slafka_daily', '2015-12-20', 'tsa:totalMsgs', 22
+put 'slafka_daily', '2015-12-20', 'tsa:totalSentiment', 16
+
+
+
+## PySpark read from HBase:
+
+(u'2015-12-18', {u'qualifier': u'latestTimestamp', u'timestamp': u'1450754914707', u'value': u'2015-12-18T22:35:30:123Z', u'columnFamily': u'tsa', u'type': u'Put', u'row': u'2015-12-18'})
+
 
 
 
