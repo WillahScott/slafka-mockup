@@ -158,7 +158,7 @@ score_corpus = {} # initialize an empty dictionary
 
 with open('corpus/AFINN-extended.txt') as f:
 	s_file = f.readlines()
-
+f
 for line in s_file:
 	term, score  = line.split("\t")  # The file is tab-delimited "\t"
 	score_corpus[term] = int(score)  # Convert the score to an integer.
