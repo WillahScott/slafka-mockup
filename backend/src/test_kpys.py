@@ -73,7 +73,7 @@ def dbgJSN(js):
 	''' Parse JSON, outputs user (or user, timestamp)
 	'''
 	data = json.loads(js[1])
-	return data
+	return data['user_name']
 
 def dbg2(d):
 	pass
