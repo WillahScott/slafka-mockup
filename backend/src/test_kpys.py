@@ -86,18 +86,18 @@ raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {t
 
 
 # From raw message stream, get user stream [ <user>, <user>, ... ]
-users = raw_msgs.flatMap( debug )
+# users = raw_msgs.flatMap( debug )
 
 
 # Get activity counts (total and unique user)
    # using windows of 10 minutes, with 1 minute batches
-message_count = users.count() # 600, 60
+# message_count = users.count() # 600, 60
 
 
 # Debug
-users.pprint()
-message_count.pprint()
-
+# users.pprint()
+# message_count.pprint()
+raw_msgs.pprint()
 
 # Update HBase KPI table
 host = ''
