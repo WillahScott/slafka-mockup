@@ -17,7 +17,8 @@ sc = SparkContext("local[2]", "MyApp")
 
 
 # Update HBase KPI table
-host = 'localhost:2181'
+# host = 'localhost:2181'
+host = 'slafka.c.w205-willahscott.internal'
 table = 'slack_daily'
 
 
