@@ -118,10 +118,16 @@ times = raw_msgs.map( parse_timestamp )
    # using windows of 10 minutes, with 1 minute batches
 _message_count = users.count() # 600, 60
 _act_user_count = users.countByValue()
+
+print 'XXXXXXXXX =================================================='
+
 _time_latest = times.reduce( max ).map( parse_date )
 
-_counts = _message_count.join(_act_user_count)
-final_stream = _time_latest.join(_counts)
+
+print 'YYYYYYYYY -------====================================-------'
+
+_counts = _message_count.union(_act_user_count)
+final_stream = _time_latest.union(_counts)
 
 final_stream.pprint()
 
