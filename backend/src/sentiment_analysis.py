@@ -110,7 +110,7 @@ def load_updated_corpus():
 def save_updated_corpus():
 	''' Pickles the newly generated corpus into ext_corpus
 	'''
-	pk.dump( open('corpus/updated_corpus.pk', 'wb') )
+	pk.dump( new_corpus, open('corpus/updated_corpus.pk', 'wb') )
 
 
 def write_hbase(data):
