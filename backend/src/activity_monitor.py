@@ -106,18 +106,21 @@ _message_count = users.count() # 600, 60
 _act_user_count = users.countByValue()
 _time_latest = times.reduce( max )
 
-# Collect results
-message_count = _message_count.collect()
-act_user_count = _act_user_count.collect()
-time_latest = _time_latest.collect()
 
-print "MESSAGES:", message_count, "USERS:", act_user_count, "TIME:", time_latest
+print "MESSAGES:", _message_count, "USERS:", _act_user_count, "TIME:", _time_latest
+
+# Collect results
+# message_count = _message_count.collect()
+# act_user_count = _act_user_count.collect()
+# time_latest = _time_latest.collect()
+
+# print "MESSAGES:", message_count, "USERS:", act_user_count, "TIME:", time_latest
 
 
 # Print for debug
-message_count.pprint()
-act_user_count.pprint()
-time_latest.pprint()
+# message_count.pprint()
+# act_user_count.pprint()
+# time_latest.pprint()
 
 
 # Convert timestamp into date
