@@ -160,10 +160,16 @@ for (d, v) in output:
 	if d == date_str:
 		update_values[v['qualifier']] = v['value']
 
+print "===========> READING HBASE"
+
+print "===> Values Read:", update_values
+
+message_count, act_user_count = '15', '4'
+
 # If necessary update values
-if len(update_values) > 0:
-	message_count = str( int(update_values['totalMsgs']) + int(message_count) )
-	act_user_count = str( int(update_values['uniqueUsers']) + int(act_user_count) )
+# if len(update_values) > 0:
+# 	message_count = str( int(update_values['totalMsgs']) + int(message_count) )
+# 	act_user_count = str( int(update_values['uniqueUsers']) + int(act_user_count) )
 
 
 # Write into table
@@ -188,6 +194,14 @@ valueConv_write = "org.apache.spark.examples.pythonconverters.StringListToPutCon
 row1 = ( date_str, [date_str, family, 'totalMsgs', message_count] )
 row2 = ( date_str, [date_str, family, 'uniqueUsers', act_user_count] )
 row3 = ( date_str, [date_str, family, 'latestTimestamp', time_latest] )
+
+
+print "===========> WRITING HBASE"
+
+print "===> Values to write (I/III):", row1
+print "===> Values to write (II/III):", row2
+print "===> Values to write (IIII/III):", row3
+
 
 sc.parallelize([ row1, row2, row3 ]).saveAsNewAPIHadoopDataset(
                keyConverter=keyConv_write,
