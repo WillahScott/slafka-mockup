@@ -4,7 +4,6 @@
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 
-from pyspark.streaming.kafka import KafkaUtils
 
 import sys
 import json
@@ -21,7 +20,7 @@ sc = SparkContext("local[2]", "MyApp")
 host = 'localhost'
 table = 'slack_daily'
 
-row = '2015-12-20'
+row = '2015-12-21'
 family = 'tsa'
 q1 = 'uniqueUsers' 
 q2 = 'totalMsgs'
@@ -54,7 +53,11 @@ conf = {"hbase.zookeeper.quorum": host,
 keyConv = "org.apache.spark.examples.pythonconverters.StringToImmutableBytesWritableConverter"
 valueConv = "org.apache.spark.examples.pythonconverters.StringListToPutConverter"
 
-sc.parallelize([ ('2015-12-21', ['2015-12-21', family, q1, 3]), ('2015-12-21', ['2015-12-21', family, q2, 10]) ]).saveAsNewAPIHadoopDataset(
+
+row1 = (row, [row, family, q1, 3])
+row2 = (row, [row, family, q2, 10])
+
+sc.parallelize([ row1, row2 ]).saveAsNewAPIHadoopDataset(
                conf=conf,
                keyConverter=keyConv,
                valueConverter=valueConv
