@@ -22,8 +22,8 @@ host = 'slafka.c.w205-willahscott.internal'
 table = 'slack_daily'
 
 
-
-conf = {"hbase.zookeeper.quorum": host, "hbase.mapreduce.inputtable": table}
+conf = {"hbase.zookeeper.quorum": host, "hbase.zookeeper.property.clientPort": port, "hbase.mapreduce.inputtable": table}
+# conf = {"hbase.zookeeper.quorum": host, "hbase.mapreduce.inputtable": table}
 
 keyConv = "org.apache.spark.examples.pythonconverters.ImmutableBytesWritableToStringConverter"
 valueConv = "org.apache.spark.examples.pythonconverters.HBaseResultToStringConverter"
