@@ -90,23 +90,6 @@ def process_message(raw_msg):
 	return ( timestamp, ( message, user, score ) )
 
 
-
-def load_updated_corpus():
-	''' If exists, loads the updated corpus, else returns empyt dictionary
-	'''
-	try:
-		f = open('corpus/updated_corpus.pk', 'rb')
-	
-	except:
-		updated_corpus = {}
-
-	else:
-		updated_corpus = pk.load(f)
-
-	finally:
-		return updated_corpus
-
-
 def save_updated_corpus():
 	''' Pickles the newly generated corpus into ext_corpus
 	'''
@@ -164,7 +147,13 @@ for line in s_file:
 	score_corpus[term] = int(score)  # Convert the score to an integer.
 
 # Initialize new corpus (contains total score and total count of messages)
-new_corpus = load_updated_corpus()
+try:
+	f = open('corpus/updated_corpus.pk', 'rb')
+except:
+	new_corpus = {}
+else:
+	new_corpus = pk.load(f)
+
 
 # Registers saving the updated corpus into the corpus/ directory on program exit
 atexit.register( save_updated_corpus )
