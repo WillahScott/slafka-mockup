@@ -25,7 +25,7 @@ def get_score(msg):
 	score = 0 # initialize score to 0
 
 	# Reads the message and splits into words
-	words = msg["text"].split()
+	words = msg.split()
 
 	for _w in words:
 		# Converts unicode to lower-case string
