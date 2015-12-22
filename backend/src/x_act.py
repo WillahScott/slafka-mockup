@@ -230,15 +230,12 @@ _counts = _message_count.union(_act_user_count)
 final_stream = _time_latest.union(_counts)
 
 # Debug
-_message_count.pprint()
+final_stream.pprint()
 
 
 # Update HBase with each entry
 # hbase_updates = _message_count.flatMap( update_hbase )
 hbase_updates = _message_count.map( dummy_update_hbase )
-
-# Debug
-hbase_updates.pprint()
 
 
 # Initialize Stream
