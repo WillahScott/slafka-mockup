@@ -69,13 +69,13 @@ def parse_timestamp(data):
 		return r
 
 
-def dbgJSN(data):
+def get_users(data):
 	''' Parse JSON, outputs user (or user, timestamp)
 	'''
 	data = json.loads(data[1])
 	return data['user_name']
 
-def dbg2(data):
+def get_timestamps(data):
 	data = json.loads(data[1])
 	return data['timestamp']
 
@@ -104,10 +104,15 @@ raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {t
 
 
 # Debug
-users = raw_msgs.map( dbgJSN )
-times = raw_msgs.map( dbg2 )
-users.pprint()
-times.pprint()
+users = raw_msgs.map( get_users )
+times = raw_msgs.map( get_timestamps )
+
+message_count = users.count() # 600, 60
+act_user_count = users.countByValue()
+
+
+message_count.pprint()
+act_user_count.pprint()
 
 # data2 = jsn.flatMap(  )
 
