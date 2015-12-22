@@ -2,11 +2,17 @@
 
 app.controller('DataboxesCtrl', [
     '$rootScope', '$scope', '$http', function($rootScope, $scope, $http) {
-        $http.get('service.php')
-        .success(function(data) {
-            console.log(data);
-            $scope.slafkaDaily = data;
-        });
+        $scope.getData = function(){
+          $http.get('service.php')
+          .success(function(data) {
+              $scope.slafkaDaily = data;
+              $scope.apply();
+          });
+        };
+
+        // Run function every second
+        setInterval($scope.getData, 3000);
+
         //Pie Chart
         $scope.pieData = [
             {
