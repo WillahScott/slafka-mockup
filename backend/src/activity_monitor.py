@@ -102,9 +102,16 @@ times = raw_msgs.map( parse_timestamp )
 
 # Get activity counts (total and unique user)
    # using windows of 10 minutes, with 1 minute batches
-message_count = users.count() # 600, 60
-act_user_count = users.countByValue()
-time_latest = times.reduce( max )
+_message_count = users.count() # 600, 60
+_act_user_count = users.countByValue()
+_time_latest = times.reduce( max )
+
+# Collect results
+message_count = _message_count.collect()
+act_user_count = _act_user_count.collect()
+time_latest = _time_latest.collect()
+
+print "MESSAGES:", message_count, "USERS:", act_user_count, "TIME:", time_latest
 
 
 # Print for debug
