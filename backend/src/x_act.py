@@ -226,8 +226,8 @@ _time_latest = times.reduce( max ).map( parse_date )
 
 
 # Merge into one Dstream
-_counts = _message_count.union(_act_user_count)
-final_stream = _time_latest.union(_counts)
+_counts = _message_count.join(_act_user_count)
+final_stream = _time_latest.join(_counts)
 
 # Debug
 final_stream.pprint()
