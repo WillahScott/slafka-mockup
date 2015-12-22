@@ -1,3 +1,4 @@
+
 ## PySpark - Sentiment Analysis
 ##    Slafka - Dec, 2015
 
@@ -134,6 +135,27 @@ def write_hbase(data):
 	return True
 
 
+def REST_hbase(data):
+	# Baseurl
+	url = "http://104.196.37.110:20550/slafka_daily/2015-12-19"
+
+	# Generate payload of request
+	keywords = {'key': data[0], 'msg': data[1][0], 'usr': data[1][1], 'sc': data[1][2]}
+	payload = template.format(**keywords)
+
+	headers = {
+	    'accept': "application/json",
+	    'content-type': "application/json",
+	    'cache-control': "no-cache",
+	    'postman-token': "4f6f9ec4-e612-f369-8c69-4e1571a7953d"
+	    }
+
+	response = requests.request("POST", url, data=payload, headers=headers)
+
+	return True
+
+
+
 
 ## SENTIMENT ANALYS INITIALIZATION --------------------------------------------
 
@@ -181,6 +203,34 @@ valueConv_write = "org.apache.spark.examples.pythonconverters.StringListToPutCon
 
 
 
+## HBASE API REQUESTS TEMPLATE ------------------------------------------------
+
+template = '''
+{
+  "Row": [
+    {
+      "key": "{key}",
+      "Cell": [
+        {
+          "column": "message",
+          "$": "{msg}"
+        },
+        {
+          "column": "user",
+          "$": "{usr}"
+        },
+        {
+          "column": "score",
+          "$": "{sc}"
+        }
+      ]
+    }
+  ]
+}
+'''
+
+
+
 ## STREAM ANALYSIS ------------------------------------------------------------
 
 # Initialize stream
@@ -204,12 +254,15 @@ sc_messages.pprint()
 
 
 # Update HBase with each entry
-hbase_updates = sc_messages.flatMap( write_hbase )
+# hbase_updates = sc_messages.flatMap( write_hbase )
+hbase_updates = sc_messages.flatMap( REST_hbase )
 
 
 # Initialize Stream
 ssc.start()
 ssc.awaitTermination()
+
+
 
 
 
