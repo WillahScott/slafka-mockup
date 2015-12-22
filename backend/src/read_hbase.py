@@ -20,6 +20,7 @@ sc = SparkContext("local[2]", "MyApp")
 # host = 'localhost:2181'
 host = 'slafka.c.w205-willahscott.internal'
 table = 'slack_daily'
+port = '2181'
 
 
 conf = {"hbase.zookeeper.quorum": host, "hbase.zookeeper.property.clientPort": port, "hbase.mapreduce.inputtable": table}
