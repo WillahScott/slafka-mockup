@@ -196,6 +196,7 @@ raw_msgs = ssc.socketTextStream("localhost", 9999)
 sc_messages = raw_msgs.flatMap( process_message )
 
 # Debug
+raw_msgs.pprint()
 sc_messages.pprint()
 
 
