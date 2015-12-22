@@ -8,8 +8,8 @@
                             <div class="databox-stat white bg-palegreen font-120">
                                 <i class="stat-icon fa fa-caret-up icon-xlg"></i>
                             </div>
-                            <span class="databox-number no-margin">Users: 13</span>
-                            <span class="databox-text no-margin">Messages: 128 (+4.2%)</span>
+                            <span class="databox-number no-margin">Users: {{slafkaDaily[slafkaDaily.length-1].uniqueUsers}}</span>
+                            <span class="databox-text no-margin">Messages: {{slafkaDaily[slafkaDaily.length-1].totalMsgs}} ({{slafkaDaily[slafkaDaily.length-1].totalMsgs - slafkaDaily[slafkaDaily.length-2].totalMsgs > 0 ? '+' : '-' }}{{((slafkaDaily[slafkaDaily.length-1].totalMsgs - slafkaDaily[slafkaDaily.length-2].totalMsgs)/slafkaDaily[slafkaDaily.length-2].totalMsgs)*100 | number:1}}%)</span>
                         </div>
                         <div class="databox-row row-7">
                             <div class="databox-sparkline no-margin">
@@ -19,7 +19,7 @@
                     </div>
                     <div class="databox-bottom bg-white no-padding">
                         <div class="databox-row row-2 padding-10">
-                            <span class="databox-text sonic-silver no-margin"><i class="glyphicon glyphicon-time gray"></i>Last Message: 14 Dec, 4:15 PM</span>
+                            <span class="databox-text sonic-silver no-margin"><i class="glyphicon glyphicon-time gray"></i>Last Message: {{slafkaDaily[slafkaDaily.length-1].latestTimestamp | amParse:'YYYY.MM.DDTHH:mm:ss.SSSZ' | amDateFormat:'DD MMM YYYY, H:mm:ss'}}</span>
                         </div>
                         <div class="databox-row row-2 padding-10 padding-top-20">
                             <span class="databox-text sonic-silver no-margin"><i class="glyphicon glyphicon-time gray"></i>History View (messages): </span>

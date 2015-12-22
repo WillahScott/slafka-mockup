@@ -1,8 +1,12 @@
 ﻿'use strict';
 
 app.controller('DataboxesCtrl', [
-    '$rootScope', '$scope', function($rootScope, $scope) {
-
+    '$rootScope', '$scope', '$http', function($rootScope, $scope, $http) {
+        $http.get('http://localhost/slafka/slafka-mockup/frontend/service.php')
+        .success(function(data) {
+            console.log(data);
+            $scope.slafkaDaily = data;
+        });
         //Pie Chart
         $scope.pieData = [
             {
