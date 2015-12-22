@@ -79,6 +79,16 @@ def get_timestamps(data):
 	return data['timestamp']
 
 
+def print_msg(stream):
+	return "Count Messages: " + " ".join(stream) 
+
+def print_user(stream):
+	return "Count Active Users: " + " ".join(stream) 
+
+def print_time(stream):
+	return "Timestamp: " + " ".join(stream) 
+
+
 ## STREAM ANALYSIS ------------------------------------------------------------
 
 # Initialize stream
@@ -106,9 +116,9 @@ time_latest = times.reduce( max )
 
 
 # Print for debug
-message_count.pprint()
-act_user_count.pprint()
-time_latest.pprint()
+message_count.reduce(print_msg).pprint()
+act_user_count.reduce(print_user).pprint()
+time_latest.reduce(print_time).pprint()
 
 
 
