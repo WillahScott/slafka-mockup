@@ -108,9 +108,9 @@ time_latest = times.reduce( max )
 
 
 # Print for debug
-# message_count.pprint()
-# act_user_count.pprint()
-# time_latest.pprint()
+message_count.pprint()
+act_user_count.pprint()
+time_latest.pprint()
 
 
 # Convert timestamp into date
