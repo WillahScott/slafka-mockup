@@ -182,18 +182,20 @@ valueConv_write = "org.apache.spark.examples.pythonconverters.StringListToPutCon
 
 ## STREAM ANALYSIS ------------------------------------------------------------
 
-# Connect to stream CHANGE!
+# Initialize stream
 sc = SparkContext("local[2]", "MyApp")
-ssc = StreamingContext(sc, 10)
+ssc = StreamingContext(sc, 15)
+ssc.checkpoint("file:///apps/new-slafka/slafka-mockup/backend/data/sentiment/checkpointing")
 
-# from github apache/spark :: kafka_wordcount.py
-# zkQuorum, topic = sys.argv[1:]
-# raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {topic: 1})
+# Get stream of raw messages from Kafka
+zkQuorum = 'localhost:2181'
+topic = 'slafka' 
+raw_msgs = KafkaUtils.createStream(ssc, zkQuorum, "spark-streaming-consumer", {topic: 1})
 
 
 # Parse stream, returns -> [ <message>, <message>, ... ]
-raw_msgs = ssc.socketTextStream("localhost", 9999)
 sc_messages = raw_msgs.flatMap( process_message )
+
 
 # Debug
 raw_msgs.pprint()
