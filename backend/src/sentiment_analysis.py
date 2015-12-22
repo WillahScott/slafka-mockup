@@ -156,7 +156,7 @@ def write_hbase(data):
 # Read sentiment dictionary
 score_corpus = {} # initialize an empty dictionary	
 
-with open('corpus/AFINN-sentiment.txt') as f:
+with open('corpus/AFINN-extended.txt') as f:
 	s_file = f.readlines()
 
 for line in s_file:
