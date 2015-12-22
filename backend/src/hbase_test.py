@@ -17,7 +17,7 @@ sc = SparkContext("local[2]", "MyApp")
 
 
 # Update HBase KPI table
-host = 'localhost'
+host = 'localhost:2181'
 table = 'slafka_daily'
 
 row = '2015-12-17'
